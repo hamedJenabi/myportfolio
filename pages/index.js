@@ -17,6 +17,8 @@ export default function Home() {
     fetch(`${api.base}weather?q=Vienna&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
+        console.log('weather', result);
+
         const weatherMain = result.main;
         const weatherSkys = result.weather[0];
 
@@ -55,7 +57,6 @@ export default function Home() {
         />
         <meta name="keywords" content="Hamed Jenabi's Portfolio" />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
 
         <title>Hamed Jenabi's Portfolio</title>
@@ -81,8 +82,8 @@ export default function Home() {
           className="arrowContainer"
           onClick={() =>
             window.scrollTo({
-              top: 800,
-              left: 800,
+              top: 750,
+              left: 750,
               behavior: 'smooth',
             })
           }
@@ -124,6 +125,7 @@ export default function Home() {
             <li>CSS3</li>
             <li>PostgreSQL</li>
             <li>SEO</li>
+            <li>?</li>
           </ul>
           <div className="weatherSection">
             <div style={{ justifyContent: 'center' }}>
@@ -144,10 +146,7 @@ export default function Home() {
                 </span>
                 {'  '}so while you're on my page,
               </p>
-              <p>
-                why not checking out how the weather is in 
-                Vienna:
-              </p>
+              <p>why not checking out how the weather is in Vienna:</p>
             </div>
             <div className="weatherResponse">
               <div style={{ display: 'flex' }}>
@@ -185,7 +184,9 @@ export default function Home() {
             justifyContent: 'center',
           }}
         >
-          <h1>i enjoy solving riddles and problems</h1>
+          <h1 style={{ textAlign: 'center' }}>
+            i enjoy solving riddles and problems
+          </h1>
           <div>
             <img
               className="icon"
@@ -289,6 +290,7 @@ export default function Home() {
           margin-left: 5px;
           border-radius: 9px;
           color: #fff;
+          text-align: center;
           display: inline;
           font-size: 1em;
           padding: 4px 11px;
@@ -308,7 +310,8 @@ export default function Home() {
             color: #fff;
             display: inline;
             font-size: 0.7em;
-            padding: 3px 10px;
+            padding: 10px 10px;
+            text-align: center;
             text-shadow: 0 0 3px #111c26;
           }
         }
@@ -372,6 +375,7 @@ export default function Home() {
           word-spacing: 3px;
           letter-spacing: 2px;
           padding-top: 0.5em;
+          text-align: center;
         }
         main h2 {
           font-size: 2.3em;
