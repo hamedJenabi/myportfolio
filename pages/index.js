@@ -104,8 +104,8 @@ export default function Home() {
             </p>
             <p>
               i also have several years of experience <em>team building</em>,{' '}
-              <em>project managinf</em> and <em>bringing people together</em>{' '}
-              with varying ways of thinking.
+              <em>project management</em> and <em>bringing people together</em>{' '}
+              with different ways of thinking.
             </p>
             <p>
               when i'm not coding, i'm a dancing and teaching blues and swing
@@ -233,7 +233,7 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           background-color: ${isDarkMode ? 'black' : 'white'};
-          transition: 500ms;
+          transition: 1000ms;
           color: ${isDarkMode ? 'white' : 'black'};
         }
         .sectionContainer {
@@ -301,7 +301,7 @@ export default function Home() {
             display: grid;
             align-self: center;
             grid-template-columns: 1fr 1fr;
-            grid-gap: 3px;
+            grid-gap: 5px;
             margin-right: 20px;
           }
           .tags li {
@@ -309,7 +309,7 @@ export default function Home() {
             border-radius: 9px;
             color: #fff;
             display: inline;
-            font-size: 0.7em;
+            font-size: 1.1em;
             padding: 10px 10px;
             text-align: center;
             text-shadow: 0 0 3px #111c26;

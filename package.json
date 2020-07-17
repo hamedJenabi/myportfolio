@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export",
-    "deploy": "yarn run build && yarn run export"
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "next": "9.4.4",
