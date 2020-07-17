@@ -285,15 +285,14 @@ export default function Home() {
           display: flex;
         }
         .tags li {
-          background: #15202d;
+          background: ${isDarkMode ? '#b3ffff' : '#15202d'};
           margin-left: 5px;
           border-radius: 9px;
-          color: #fff;
+          color: ${isDarkMode ? 'black ' : '#b3ffff'};
           text-align: center;
           display: inline;
           font-size: 1em;
           padding: 4px 11px;
-          text-shadow: 0 0 3px #111c26;
         }
         @media (max-width: 800px) {
           .tags {
@@ -304,14 +303,13 @@ export default function Home() {
             margin-right: 20px;
           }
           .tags li {
-            background: #15202d;
+            background: ${isDarkMode ? '#b3ffff' : '#15202d'};
             border-radius: 9px;
-            color: #fff;
+            color: ${isDarkMode ? 'black ' : '#b3ffff'};
             display: inline;
             font-size: 1.1em;
             padding: 10px 10px;
             text-align: center;
-            text-shadow: 0 0 3px #111c26;
           }
         }
         .weatherSection {
