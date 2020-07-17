@@ -8,7 +8,6 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [weather, setWeather] = useState({});
   const [weatherSky, setWeatherSky] = useState({});
-  const [desc, setdesc] = useState('');
   const api = {
     key: 'ad9e8a41a3b0321cfbc356d29726abff',
     base: 'https://api.openweathermap.org/data/2.5/',
