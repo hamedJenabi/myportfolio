@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "heroku-postbuild": "next build"
+    "export": "next export",
+    "deploy": "yarn run build && yarn run export"
   },
   "dependencies": {
     "next": "9.4.4",
