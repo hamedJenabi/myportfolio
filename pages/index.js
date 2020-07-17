@@ -368,8 +368,26 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
+        @media (max-width: 800px) {
+          h1 {
+            font-size: 1.2em;
+            font-weight: 300;
+            word-spacing: 3px;
+            letter-spacing: 2px;
+            padding-top: 0.5em;
+            text-align: center;
+          }
+          h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            word-spacing: 3px;
+            letter-spacing: 2px;
+            border-top: 1px solid #324659;
+            padding-top: 0.5em;
+          }
+        }
         main h1 {
-          font-size: 1.7em;
+          font-size: 1.5em;
           font-weight: 400;
           word-spacing: 3px;
           letter-spacing: 2px;
@@ -377,7 +395,7 @@ export default function Home() {
           text-align: center;
         }
         main h2 {
-          font-size: 2.3em;
+          font-size: 2em;
           font-weight: 400;
           word-spacing: 3px;
           letter-spacing: 2px;
