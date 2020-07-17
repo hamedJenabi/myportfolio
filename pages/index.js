@@ -104,8 +104,8 @@ export default function Home() {
             </p>
             <p>
               i also have several years of experience <em>team building</em>,{' '}
-              <em>project management</em> and <em>bringing people together</em>{' '}
-              with different ways of thinking.
+              <em>project management</em> and also{' '}
+              <em>bringing people together</em> with different ways of thinking.
             </p>
             <p>
               when i'm not coding, i'm a dancing and teaching blues and swing
