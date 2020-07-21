@@ -127,7 +127,13 @@ export default function Home() {
             <li>?</li>
           </ul>
           <div className="weatherSection">
-            <div style={{ justifyContent: 'center' }}>
+            <div
+              style={{
+                justifyContent: 'center',
+                textAlign: 'center',
+                lineHeight: '35px',
+              }}
+            >
               <p>
                 OOPS! forgot about
                 <span
@@ -148,27 +154,33 @@ export default function Home() {
               <p>why not checking out how the weather is in Vienna:</p>
             </div>
             <div className="weatherResponse">
-              <div style={{ display: 'flex' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
                 <p>{weatherSky.description}</p>
                 <img
-                  style={{ width: '50px' }}
+                  style={{ width: '60px' }}
                   src={`http://openweathermap.org/img/wn/${weatherSky.icon}.png`}
                   alt="Icon depicting current weather"
                 />
               </div>
-              <p style={{ margin: '0', padding: '3px 0' }}>
+              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
                 {' '}
                 Current temperature: {weather.temp}°C
               </p>
-              <p style={{ margin: '0', padding: '3px 0' }}>
+              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
                 {' '}
                 Feeling like: {weather.feels_like} °C
               </p>
-              <p style={{ margin: '0', padding: '3px 0' }}>
+              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
                 {' '}
                 Highest temperature: {weather.temp_max} °C
               </p>
-              <p style={{ margin: '0', padding: '3px 0' }}>
+              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
                 {' '}
                 Lowest temperature: {weather.temp_min} °C
               </p>
@@ -252,6 +264,7 @@ export default function Home() {
           margin: 20px 0 30px 0;
           width: 300px;
         }
+
         .arrowContainer {
           display: flex;
         }
@@ -292,9 +305,16 @@ export default function Home() {
           text-align: center;
           display: inline;
           font-size: 1em;
+          text-align: center;
           padding: 4px 11px;
         }
         @media (max-width: 800px) {
+          .myImage {
+            border-radius: 50%;
+            margin: 20px 0 30px 0;
+            width: 200px;
+          }
+
           .tags {
             display: grid;
             align-self: center;
