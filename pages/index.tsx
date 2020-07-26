@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/head';
-
 import { useState, useEffect } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
-export default function Home(props) {
+type Props = {
+  product: string;
+};
+export default function Home(props: Props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [weather, setWeather] = useState({});
@@ -563,10 +565,9 @@ export default function Home(props) {
     </div>
   );
 }
-export function getStaticProps() {
-  const dotenv = require('dotenv').config();
-  const apiKey = process.env.apiKey;
-  if (dotenv === undefined) {
+export async function getServerSideProps(context) {
+  const apiKey = process.env.REACT_APP_API_KEY;
+  if (apiKey === undefined) {
     return { props: {} };
   }
   return {
