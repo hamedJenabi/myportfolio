@@ -16,8 +16,6 @@ export default function Home() {
     fetch(`${api.base}weather?q=Vienna&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log('weather', result);
-
         const weatherMain = result.main;
         const weatherSkys = result.weather[0];
 
