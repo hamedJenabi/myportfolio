@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/head';
+
 import { useState, useEffect } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
-export default function Home() {
+export default function Home(props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [weather, setWeather] = useState({});
   const [weatherSky, setWeatherSky] = useState({});
   const api = {
-    key: 'ad9e8a41a3b0321cfbc356d29726abff',
+    key: props.apiKey,
     base: 'https://api.openweathermap.org/data/2.5/',
   };
   useEffect(() => {
@@ -561,4 +562,16 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+export function getServerSideProps() {
+  const dotenv = require('dotenv').config();
+  const apiKey = process.env.apiKey;
+  if (dotenv === undefined) {
+    return { props: {} };
+  }
+  return {
+    props: {
+      apiKey,
+    },
+  };
 }
