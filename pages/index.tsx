@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
 type Props = {
-  product: string;
+  apiKey: string;
 };
 export default function Home(props: Props) {
   const [scrolling, setScrolling] = useState('150px');
