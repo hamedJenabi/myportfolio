@@ -6,29 +6,29 @@ import DarkModeToggle from 'react-dark-mode-toggle';
 export default function Home(props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [weather, setWeather] = useState({});
-  const [weatherSky, setWeatherSky] = useState({});
-  const api = {
-    key: props.apiKey,
-    base: 'https://api.openweathermap.org/data/2.5/',
-  };
-  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${api.key}`;
+  // const [weather, setWeather] = useState({});
+  // const [weatherSky, setWeatherSky] = useState({});
+  // const api = {
+  //   key: props.apiKey,
+  //   base: 'https://api.openweathermap.org/data/2.5/',
+  // };
+  // const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${api.key}`;
 
-  useEffect(() => {
-    fetch(weatherURL)
-      .then((res) => res.json())
-      .then((result) => {
-        const weatherMain = result.main;
-        const weatherSkys = result.weather[0];
+  // useEffect(() => {
+  //   fetch(weatherURL)
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       const weatherMain = result.main;
+  //       const weatherSkys = result.weather[0];
 
-        setWeather(weatherMain);
-        setWeatherSky(weatherSkys);
-      })
-      .catch((err) => {
-        alert('City not found!');
-        return;
-      });
-  }, []);
+  //       setWeather(weatherMain);
+  //       setWeatherSky(weatherSkys);
+  //     })
+  //     .catch((err) => {
+  //       alert('City not found!');
+  //       return;
+  //     });
+  // }, []);
 
   if (process.browser) {
     window.onscroll = function () {
@@ -153,38 +153,50 @@ export default function Home(props) {
               </p>
               <p>why not checking out how the weather is in Vienna:</p>
             </div>
-            <div className="weatherResponse">
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <p>{weatherSky.description}</p>
-                <img
-                  style={{ width: '60px' }}
-                  src={`http://openweathermap.org/img/wn/${weatherSky.icon}.png`}
-                  alt="Icon depicting current weather"
-                />
+            {!props.weatherMain ? (
+              <p>oops, Weather not found!</p>
+            ) : (
+              <div className="weatherResponse">
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
+                >
+                  <p>{props.weatherSkys.description}</p>
+                  <img
+                    style={{ width: '60px' }}
+                    src={`http://openweathermap.org/img/wn/${props.weatherSkys.icon}.png`}
+                    alt="Icon depicting current weather"
+                  />
+                </div>
+                <p
+                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                >
+                  {' '}
+                  Current temperature: {props.weatherMain.temp}°C
+                </p>
+                <p
+                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                >
+                  {' '}
+                  Feeling like: {props.weatherMain.feels_like} °C
+                </p>
+                <p
+                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                >
+                  {' '}
+                  Highest temperature: {props.weatherMain.temp_max} °C
+                </p>
+                <p
+                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                >
+                  {' '}
+                  Lowest temperature: {props.weatherMain.temp_min} °C
+                </p>
               </div>
-              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
-                {' '}
-                Current temperature: {weather.temp}°C
-              </p>
-              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
-                {' '}
-                Feeling like: {weather.feels_like} °C
-              </p>
-              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
-                {' '}
-                Highest temperature: {weather.temp_max} °C
-              </p>
-              <p style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}>
-                {' '}
-                Lowest temperature: {weather.temp_min} °C
-              </p>
-            </div>
+            )}
           </div>
         </section>
         <section
@@ -565,13 +577,30 @@ export default function Home(props) {
   );
 }
 export async function getStaticProps(context) {
+  let weatherMain = {};
+  let weatherSkys = {};
   const apiKey = process.env.REACT_APP_API_KEY;
+
+  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${apiKey}`;
+
+  await fetch(weatherURL)
+    .then((res) => res.json())
+    .then((result) => {
+      weatherMain = result.main;
+      weatherSkys = result.weather[0];
+    })
+    .catch((err) => {
+      alert('City not found!');
+      return;
+    });
+
   if (apiKey === undefined) {
     return { props: {} };
   }
   return {
     props: {
-      apiKey,
+      weatherSkys,
+      weatherMain,
     },
   };
 }
