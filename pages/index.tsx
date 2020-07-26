@@ -15,8 +15,10 @@ export default function Home(props: Props) {
     key: props.apiKey,
     base: 'https://api.openweathermap.org/data/2.5/',
   };
+  const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${api.key}`;
+
   useEffect(() => {
-    fetch(`${api.base}weather?q=Vienna&units=metric&APPID=${api.key}`)
+    fetch(weatherURL)
       .then((res) => res.json())
       .then((result) => {
         const weatherMain = result.main;
@@ -565,7 +567,7 @@ export default function Home(props: Props) {
     </div>
   );
 }
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const apiKey = process.env.REACT_APP_API_KEY;
   if (apiKey === undefined) {
     return { props: {} };
