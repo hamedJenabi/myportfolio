@@ -3,10 +3,7 @@ import Link from 'next/head';
 import { useState, useEffect } from 'react';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
-type Props = {
-  apiKey: string;
-};
-export default function Home(props: Props) {
+export default function Home(props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [weather, setWeather] = useState({});
