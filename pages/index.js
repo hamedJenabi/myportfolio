@@ -563,7 +563,7 @@ export default function Home(props) {
     </div>
   );
 }
-export function getServerSideProps() {
+export function getStaticProps() {
   const dotenv = require('dotenv').config();
   const apiKey = process.env.apiKey;
   if (dotenv === undefined) {
