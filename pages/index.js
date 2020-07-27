@@ -110,6 +110,17 @@ export default function Home(props) {
               when i'm not coding, i'm a dancing and teaching blues and swing
               dance.
             </p>
+            <p style={{ color: '#125454' }}>
+              Oh btw, check out my App on AppStore:
+            </p>
+
+            <a href="https://play.google.com/store/apps/details?id=com.nativeApper.popword&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+              <img
+                alt="Get it on Google Play"
+                style={{ width: '250px' }}
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              />
+            </a>
           </div>
         </section>
         <section className="sectionContainer">
@@ -576,6 +587,7 @@ export default function Home(props) {
     </div>
   );
 }
+
 export async function getStaticProps(context) {
   let weatherMain = {};
   let weatherSkys = {};
