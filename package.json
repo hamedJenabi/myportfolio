@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "yarn build && next export",
-    "deploy": "yarn build && yarn export"
+    "export": "npm run build && next export",
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "@types/node": "^14.0.26",
