@@ -178,7 +178,7 @@ export default function Home(props) {
                   <p>{props.weatherSkys.description}</p>
                   <img
                     style={{ width: '60px' }}
-                    src={`http://openweathermap.org/img/wn/${props.weatherSkys.icon}.png`}
+                    src={`https://openweathermap.org/img/wn/${props.weatherSkys.icon}.png`}
                     alt="Icon depicting current weather"
                   />
                 </div>
