@@ -6,29 +6,6 @@ import DarkModeToggle from 'react-dark-mode-toggle';
 export default function Home(props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
-  // const [weather, setWeather] = useState({});
-  // const [weatherSky, setWeatherSky] = useState({});
-  // const api = {
-  //   key: props.apiKey,
-  //   base: 'https://api.openweathermap.org/data/2.5/',
-  // };
-  // const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${api.key}`;
-
-  // useEffect(() => {
-  //   fetch(weatherURL)
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       const weatherMain = result.main;
-  //       const weatherSkys = result.weather[0];
-
-  //       setWeather(weatherMain);
-  //       setWeatherSky(weatherSkys);
-  //     })
-  //     .catch((err) => {
-  //       alert('City not found!');
-  //       return;
-  //     });
-  // }, []);
 
   if (process.browser) {
     window.onscroll = function () {
