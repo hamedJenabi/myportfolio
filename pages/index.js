@@ -58,7 +58,7 @@ export default function Home(props) {
         <meta name="language" content="English" />
 
         <title>Hamed Jenabi's Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/smile.png" />
       </Head>
 
       <main>
