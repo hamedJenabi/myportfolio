@@ -26,6 +26,16 @@ export default function Home(props) {
   return (
     <div className="container">
       <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-128392016-3"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'UA-128392016-3');
+        </script>
+
         <meta name="title" content="Hamed Jenabi's Portfolio" />
         <meta
           name="description"
