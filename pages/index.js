@@ -50,7 +50,10 @@ export default function Home(props) {
           name="description"
           content="this site is about Hamed Jenabi's Portfolio, frontend, backend and full-stack web developer"
         />
-        <meta name="keywords" content="Hamed Jenabi's Portfolio" />
+        <meta
+          name="keywords"
+          content="Hamed Jenabi Portfolio web developer frondend backend javascript react dance"
+        />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
 
