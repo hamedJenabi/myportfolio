@@ -7,6 +7,18 @@ export default function Home(props) {
   const [scrolling, setScrolling] = useState('150px');
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const injectGA = () => {
+    if (typeof window == 'undefined') {
+      return;
+    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-128392016-3');
+  };
   if (process.browser) {
     window.onscroll = function () {
       scrollFunction();
@@ -26,15 +38,12 @@ export default function Home(props) {
   return (
     <div className="container">
       <Head>
+        {/* Global site tag (gtag.js) - Google Analytics */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-128392016-3"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'UA-128392016-3');
-        </script>
+          src="https://www.googletagmanager.com/gtag/js?id=YUA-128392016-3"
+        />
+        <script>{injectGA()}</script>
 
         <meta name="title" content="Hamed Jenabi's Portfolio" />
         <meta
