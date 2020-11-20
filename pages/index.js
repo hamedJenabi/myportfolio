@@ -308,7 +308,11 @@ export default function Home(props) {
             : "translateY(100%) translateX(-110%)"};
           transition: transform 1500ms;
         }
-
+        @media (max-width: 800px) {
+          .hired {
+            transform: ${hired ? "translateY(-45%)" : "translateY(100%)"};
+          }
+        }
         .arrowContainer {
           display: flex;
         }
