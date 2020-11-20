@@ -69,6 +69,15 @@ export default function Home(props) {
 
       <main>
         <div className="toggle">
+          <p
+            style={{
+              color: "white",
+              margin: "2px 10px",
+              fontSize: "12px",
+            }}
+          >
+            switch to light-mode
+          </p>
           <DarkModeToggle
             onChange={setIsDarkMode}
             checked={isDarkMode}
@@ -305,6 +314,7 @@ export default function Home(props) {
         }
         .toggle {
           align-self: flex-end;
+          display: flex;
         }
         .arrow {
           max-width: ${scrolling};
