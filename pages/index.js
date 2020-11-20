@@ -1,23 +1,23 @@
-import Head from 'next/head';
-import Link from 'next/head';
-import { useState, useEffect } from 'react';
-import DarkModeToggle from 'react-dark-mode-toggle';
+import Head from "next/head";
+import Link from "next/head";
+import { useState, useEffect } from "react";
+import DarkModeToggle from "react-dark-mode-toggle";
 
 export default function Home(props) {
-  const [scrolling, setScrolling] = useState('150px');
+  const [scrolling, setScrolling] = useState("150px");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const injectGA = () => {
-    if (typeof window == 'undefined') {
+    if (typeof window == "undefined") {
       return;
     }
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       window.dataLayer.push(arguments);
     }
-    gtag('js', new Date());
+    gtag("js", new Date());
 
-    gtag('config', 'UA-128392016-3');
+    gtag("config", "UA-128392016-3");
   };
   if (process.browser) {
     window.onscroll = function () {
@@ -30,9 +30,9 @@ export default function Home(props) {
       document.body.scrollTop > 200 ||
       document.documentElement.scrollTop > 200
     ) {
-      setScrolling('1px');
+      setScrolling("1px");
     } else {
-      setScrolling('150px');
+      setScrolling("150px");
     }
   }
   return (
@@ -70,7 +70,7 @@ export default function Home(props) {
           />
         </div>
         <h2 className="title">
-          hello, my name is <span style={{ color: '#125454' }}>hamed</span>.
+          hello, my name is <span style={{ color: "#125454" }}>hamed</span>.
         </h2>
         <h1 className="title">web developer, team-builder,</h1>
         <h3 className="title">and dancer.</h3>
@@ -82,13 +82,13 @@ export default function Home(props) {
             window.scrollTo({
               top: 750,
               left: 750,
-              behavior: 'smooth',
+              behavior: "smooth",
             })
           }
         >
           <img
             className="arrow"
-            src={isDarkMode ? '/darkmodearrow.gif' : '/arrowdown.gif'}
+            src={isDarkMode ? "/darkmodearrow.gif" : "/arrowdown.gif"}
             alt="arrow gif"
           />
         </div>
@@ -96,27 +96,27 @@ export default function Home(props) {
           <div>
             <h1 className="about">ABOUT</h1>
             <p>
-              i’m a <em>passionate</em> web developer with a background in{' '}
+              i’m a <em>passionate</em> web developer with a background in{" "}
               <em>event, marketing and social media management</em>, now
               specializing in <em>full-stack development.</em>
             </p>
             <p>
-              i also have several years of experience <em>team building</em>,{' '}
-              <em>project management</em> and also{' '}
+              i also have several years of experience <em>team building</em>,{" "}
+              <em>project management</em> and also{" "}
               <em>bringing people together</em> with different ways of thinking.
             </p>
             <p>
               when i'm not coding, i'm a dancing and teaching blues and swing
               dance.
             </p>
-            <p style={{ color: '#125454' }}>
+            <p style={{ color: "#125454" }}>
               Oh btw, check out my App on AppStore:
             </p>
 
             <a href="https://play.google.com/store/apps/details?id=com.nativeApper.popword&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
               <img
                 alt="Get it on Google Play"
-                style={{ width: '250px' }}
+                style={{ width: "250px" }}
                 src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
               />
             </a>
@@ -139,27 +139,27 @@ export default function Home(props) {
           <div className="weatherSection">
             <div
               style={{
-                justifyContent: 'center',
-                textAlign: 'center',
-                lineHeight: '35px',
+                justifyContent: "center",
+                textAlign: "center",
+                lineHeight: "35px",
               }}
             >
               <p>
                 OOPS! forgot about
                 <span
                   style={{
-                    backgroundColor: '#15202d',
-                    marginLeft: '5px',
-                    borderRadius: '9px',
-                    color: '#fff',
-                    display: 'inline',
-                    fontSize: '0.8em',
-                    padding: '2px',
+                    backgroundColor: "#15202d",
+                    marginLeft: "5px",
+                    borderRadius: "9px",
+                    color: "#fff",
+                    display: "inline",
+                    fontSize: "0.8em",
+                    padding: "2px",
                   }}
                 >
                   RESTful APIs
                 </span>
-                {'  '}so while you're on my page,
+                {"  "}so while you're on my page,
               </p>
               <p>why not checking out how the weather is in Vienna:</p>
             </div>
@@ -169,40 +169,40 @@ export default function Home(props) {
               <div className="weatherResponse">
                 <div
                   style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                   }}
                 >
                   <p>{props.weatherSkys.description}</p>
                   <img
-                    style={{ width: '60px' }}
+                    style={{ width: "60px" }}
                     src={`https://openweathermap.org/img/wn/${props.weatherSkys.icon}.png`}
                     alt="Icon depicting current weather"
                   />
                 </div>
                 <p
-                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                  style={{ margin: "0", padding: "3px 0", textAlign: "center" }}
                 >
-                  {' '}
+                  {" "}
                   Current temperature: {props.weatherMain.temp}°C
                 </p>
                 <p
-                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                  style={{ margin: "0", padding: "3px 0", textAlign: "center" }}
                 >
-                  {' '}
+                  {" "}
                   Feeling like: {props.weatherMain.feels_like} °C
                 </p>
                 <p
-                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                  style={{ margin: "0", padding: "3px 0", textAlign: "center" }}
                 >
-                  {' '}
+                  {" "}
                   Highest temperature: {props.weatherMain.temp_max} °C
                 </p>
                 <p
-                  style={{ margin: '0', padding: '3px 0', textAlign: 'center' }}
+                  style={{ margin: "0", padding: "3px 0", textAlign: "center" }}
                 >
-                  {' '}
+                  {" "}
                   Lowest temperature: {props.weatherMain.temp_min} °C
                 </p>
               </div>
@@ -211,23 +211,23 @@ export default function Home(props) {
         </section>
         <section
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <h1 style={{ textAlign: 'center' }}>
+          <h1 style={{ textAlign: "center" }}>
             i enjoy solving riddles and problems
           </h1>
           <div>
             <img
               className="icon"
-              src={isDarkMode ? '/lampDark.png' : '/lamp.gif'}
+              src={isDarkMode ? "/lampDark.png" : "/lamp.gif"}
               alt="lamp gif"
             />
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: "center" }}>
             <p>
               <em>my life-long dream</em> is to have a job with only one task:
             </p>
@@ -265,9 +265,9 @@ export default function Home(props) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: ${isDarkMode ? 'black' : 'white'};
+          background-color: ${isDarkMode ? "black" : "white"};
           transition: 1000ms;
-          color: ${isDarkMode ? 'white' : 'black'};
+          color: ${isDarkMode ? "white" : "black"};
         }
         .sectionContainer {
           min-height: 50vh;
@@ -278,8 +278,8 @@ export default function Home(props) {
           justify-content: center;
           margin-bottom: 45px;
           align-items: center;
-          background-color: ${isDarkMode ? 'black' : 'white'};
-          color: ${isDarkMode ? 'white' : 'black'};
+          background-color: ${isDarkMode ? "black" : "white"};
+          color: ${isDarkMode ? "white" : "black"};
         }
         .myImage {
           border-radius: 50%;
@@ -303,7 +303,7 @@ export default function Home(props) {
           transition: 500ms;
         }
         .arrow ::after {
-          display: 'none';
+          display: "none";
           max-width: 200px;
           transition: 500ms;
         }
@@ -320,10 +320,10 @@ export default function Home(props) {
           display: flex;
         }
         .tags li {
-          background: ${isDarkMode ? '#b3ffff' : '#15202d'};
+          background: ${isDarkMode ? "#b3ffff" : "#15202d"};
           margin-left: 5px;
           border-radius: 9px;
-          color: ${isDarkMode ? 'black ' : '#b3ffff'};
+          color: ${isDarkMode ? "black " : "#b3ffff"};
           text-align: center;
           display: inline;
           font-size: 1em;
@@ -345,9 +345,9 @@ export default function Home(props) {
             margin-right: 20px;
           }
           .tags li {
-            background: ${isDarkMode ? '#b3ffff' : '#15202d'};
+            background: ${isDarkMode ? "#b3ffff" : "#15202d"};
             border-radius: 9px;
-            color: ${isDarkMode ? 'black ' : '#b3ffff'};
+            color: ${isDarkMode ? "black " : "#b3ffff"};
             display: inline;
             font-size: 1.1em;
             padding: 10px 10px;
@@ -364,7 +364,7 @@ export default function Home(props) {
           display: flex;
           flex-direction: column;
           padding: 12px 8px 12px 40px;
-          background: ${isDarkMode ? '#0000' : '#e6ffff'};
+          background: ${isDarkMode ? "#0000" : "#e6ffff"};
           border-radius: 2px;
           justify-content: center;
           margin-top: 50px;
@@ -380,7 +380,7 @@ export default function Home(props) {
           border-radius: 3px;
         }
         .button {
-          background: '#125454';
+          background: "#125454";
           color: black;
           border: none;
           text-transform: uppercase;
@@ -593,7 +593,6 @@ export async function getStaticProps(context) {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&units=metric&APPID=${apiKey}`;
-
   await fetch(weatherURL)
     .then((res) => res.json())
     .then((result) => {
@@ -601,7 +600,7 @@ export async function getStaticProps(context) {
       weatherSkys = result.weather[0];
     })
     .catch((err) => {
-      alert('City not found!');
+      console.log("City not found!");
       return;
     });
 
