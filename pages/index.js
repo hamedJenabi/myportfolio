@@ -6,6 +6,7 @@ import DarkModeToggle from "react-dark-mode-toggle";
 export default function Home(props) {
   const [scrolling, setScrolling] = useState("150px");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [hired, setHired] = useState(false);
 
   const injectGA = () => {
     if (typeof window == "undefined") {
@@ -35,6 +36,9 @@ export default function Home(props) {
       setScrolling("150px");
     }
   }
+  setTimeout(() => {
+    setHired(true);
+  }, 100);
   return (
     <div className="container">
       <Head>
@@ -76,6 +80,7 @@ export default function Home(props) {
         <h3 className="title">and dancer.</h3>
         {/* dreaming when hovering on the picture */}
         <img className="myImage" src="/me.png" alt="my image" />
+        <img className="hired" src="/hired.png" alt="my image" />
         <div
           className="arrowContainer"
           onClick={() =>
@@ -286,6 +291,12 @@ export default function Home(props) {
           margin: 20px 0 30px 0;
           width: 300px;
         }
+        .hired {
+          transform: ${hired
+            ? "translateY(-150%) translateX(-110%)"
+            : "translateY(100%) translateX(-110%)"};
+          transition: transform 2000ms;
+        }
 
         .arrowContainer {
           display: flex;
@@ -295,8 +306,9 @@ export default function Home(props) {
         }
         .arrow {
           max-width: ${scrolling};
-          padding: 40px 0;
+          padding: 0;
           transition: 500ms;
+          margin-top: -100px;
         }
         .arrow :hover {
           max-width: 200px;
