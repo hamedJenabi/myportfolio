@@ -3,9 +3,11 @@ import Link from "next/head";
 import { useState, useEffect } from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 
+const today = new Date();
+const now = today.getHours();
 export default function Home(props) {
   const [scrolling, setScrolling] = useState("150px");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(now > 18);
   const [hired, setHired] = useState(false);
 
   const injectGA = () => {
@@ -159,7 +161,7 @@ export default function Home(props) {
                     color: "#fff",
                     display: "inline",
                     fontSize: "0.8em",
-                    padding: "2px",
+                    padding: "10px",
                   }}
                 >
                   RESTful APIs
@@ -295,7 +297,7 @@ export default function Home(props) {
           transform: ${hired
             ? "translateY(-150%) translateX(-110%)"
             : "translateY(100%) translateX(-110%)"};
-          transition: transform 2000ms;
+          transition: transform 1500ms;
         }
 
         .arrowContainer {
@@ -330,17 +332,18 @@ export default function Home(props) {
         }
         .tags {
           display: flex;
+          width: 100%;
+          justify-content: center;
         }
         .tags li {
           background: ${isDarkMode ? "#b3ffff" : "#15202d"};
           margin-left: 5px;
-          border-radius: 9px;
+          border-radius: 6px;
           color: ${isDarkMode ? "black " : "#b3ffff"};
           text-align: center;
           display: inline;
           font-size: 1em;
-          text-align: center;
-          padding: 4px 11px;
+          padding: 15px 15px;
         }
         @media (max-width: 800px) {
           .myImage {
@@ -375,7 +378,7 @@ export default function Home(props) {
         .weatherResponse {
           display: flex;
           flex-direction: column;
-          padding: 12px 8px 12px 40px;
+          padding: 12px 8px 40px 12px;
           background: ${isDarkMode ? "#0000" : "#e6ffff"};
           border-radius: 2px;
           justify-content: center;
@@ -383,6 +386,10 @@ export default function Home(props) {
           border: 1px solid #ffffff;
           box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
             0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        .weatherResponse:hover {
+          box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42);
+          transition: 300ms;
         }
         .input {
           max-width: 500px;
