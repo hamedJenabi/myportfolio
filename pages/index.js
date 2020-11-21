@@ -288,7 +288,7 @@ export default function Home(props) {
           color: ${isDarkMode ? "white" : "black"};
         }
         .sectionContainer {
-          min-height: 80vh;
+          min-height: 50vh;
           max-width: 90vw;
           padding: 0 0.5rem;
           display: flex;
