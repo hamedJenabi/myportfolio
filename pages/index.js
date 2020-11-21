@@ -89,24 +89,26 @@ export default function Home(props) {
         </h2>
         <h1 className="title">web developer, team-builder,</h1>
         <h3 className="title">and dancer.</h3>
-        {/* dreaming when hovering on the picture */}
-        <img className="myImage" src="/me.png" alt="my image" />
-        <img className="hired" src="/hired.png" alt="my image" />
-        <div
-          className="arrowContainer"
-          onClick={() =>
-            window.scrollTo({
-              top: 750,
-              left: 750,
-              behavior: "smooth",
-            })
-          }
-        >
-          <img
-            className="arrow"
-            src={isDarkMode ? "/darkmodearrow.gif" : "/arrowdown.gif"}
-            alt="arrow gif"
-          />
+        <div className="sectionContainer">
+          {/* dreaming when hovering on the picture */}
+          <img className="myImage" src="/me.png" alt="my image" />
+          <img className="hired" src="/hired.png" alt="my image" />
+          <div
+            className="arrowContainer"
+            onClick={() =>
+              window.scrollTo({
+                top: 750,
+                left: 750,
+                behavior: "smooth",
+              })
+            }
+          >
+            <img
+              className="arrow"
+              src={isDarkMode ? "/darkmodearrow.gif" : "/arrowdown.gif"}
+              alt="arrow gif"
+            />
+          </div>
         </div>
         <section className="sectionContainer">
           <div>
@@ -286,8 +288,8 @@ export default function Home(props) {
           color: ${isDarkMode ? "white" : "black"};
         }
         .sectionContainer {
-          min-height: 50vh;
-          max-width: 80vw;
+          min-height: 80vh;
+          max-width: 90vw;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
