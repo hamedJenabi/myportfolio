@@ -124,7 +124,7 @@ export default function Home(props) {
               <em>bringing people together</em> with different ways of thinking.
             </p>
             <p>
-              when i'm not coding, i'm a dancing and teaching blues and swing
+              when i'm not coding, i'm dancing and teaching blues and swing
               dance.
             </p>
             <p style={{ color: "#125454" }}>
