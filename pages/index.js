@@ -317,7 +317,7 @@ export default function Home(props) {
         }
         @media (max-width: 800px) {
           .hired {
-            transform: ${hired ? "translateY(-45%)" : "translateY(100%)"};
+            transform: ${hired ? "translateY(-20%)" : "translateY(100%)"};
           }
         }
         .arrowContainer {
