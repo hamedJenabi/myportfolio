@@ -597,7 +597,6 @@ export default function Home(props) {
           line-height: 1.5;
         }
         .email {
-          color: black !important;
           text-decoration: none !important;
         }
         .email :hover {
