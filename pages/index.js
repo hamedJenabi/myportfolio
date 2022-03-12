@@ -92,6 +92,11 @@ export default function Home(props) {
         <div className="sectionContainer">
           {/* dreaming when hovering on the picture */}
           <img className="myImage" src="/me.png" alt="my image" />
+
+          <a className="email" href="mailto: hamed.jenabi@gmail.com">
+            <h3 className="title"> email me</h3>
+          </a>
+
           <img className="hired" src="/hired.png" alt="my image" />
           <div
             className="arrowContainer"
@@ -591,7 +596,16 @@ export default function Home(props) {
           font-size: 1.25rem;
           line-height: 1.5;
         }
-
+        .email {
+          color: black !important;
+          text-decoration: none !important;
+        }
+        .email :hover {
+          text-decoration: none !important;
+          cursor: pointer;
+          transform: scale(1.05);
+          transition: transform 0.3s ease-in-out;
+        }
         .logo {
           max-width: 40px;
         }
