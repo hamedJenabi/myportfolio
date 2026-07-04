@@ -634,7 +634,7 @@ footer div {
   }
 }
 .section-title {
-  @media (max-width: 560px) {
+  @media (max-width: 1060px) {
     min-width: 500px;
   }
 }
