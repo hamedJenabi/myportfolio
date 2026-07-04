@@ -1,12 +1,6 @@
-"use client";
-
-import { useState } from "react";
-
 export default function PortraitImage() {
-  const [loaded, setLoaded] = useState(false);
-
   return (
-    <div className={`portrait-image-shell${loaded ? " is-loaded" : ""}`}>
+    <div className="portrait-image-shell">
       <div className="portrait-placeholder" aria-hidden="true" />
       <img
         src="/me.png"
@@ -15,7 +9,6 @@ export default function PortraitImage() {
         height="640"
         decoding="async"
         fetchPriority="high"
-        onLoad={() => setLoaded(true)}
       />
     </div>
   );
