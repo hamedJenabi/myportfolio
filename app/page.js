@@ -1,3 +1,4 @@
+import PortraitImage from "./components/PortraitImage";
 import TypewriterName from "./components/TypewriterName";
 
 const navItems = ["About", "Skills", "Contact"];
@@ -98,7 +99,7 @@ function Hero() {
           <p>profile.config</p>
         </div>
         <div className="portrait-frame">
-          <img src="/me.png" alt="Portrait of Hamed Jenabi" />
+          <PortraitImage />
         </div>
         <div className="status-grid">
           {statusItems.map(([label, value]) => (
@@ -173,7 +174,7 @@ function Skills() {
 function Contact() {
   return (
     <section id="contact" className="section contact-band">
-      <div>
+      <div className="section-title">
         <p className="section-kicker">Contact</p>
         <h2>Need a team lead for CMS, DXP, frontend, or AI product work?</h2>
         <p>
