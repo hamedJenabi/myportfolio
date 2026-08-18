@@ -14,7 +14,6 @@ The technical foundation has been upgraded from the legacy Pages Router to the N
 - React 19.2.7
 - Node 24.18.0 via `.nvmrc` and `.node-version`
 - `app/page.js`, `app/layout.js`, `app/globals.css`
-- `app/api/hello/route.js`
 
 The site still uses placeholder links and placeholder project content. The next phase should turn the polished shell into a credible recruiting asset.
 
@@ -96,7 +95,7 @@ Each project should include:
 - Extract repeated data into a dedicated content module, for example `app/content.js`.
 - Consider splitting page sections into components under `app/components/`.
 - Keep global layout styles in `app/globals.css`.
-- Remove the sample `/api/hello` route if it is not needed.
+- The sample `/api/hello` route has been removed for static deployment.
 - Remove unused public assets from the old version after confirming they are not referenced.
 - Use `next/image` for the portrait if image optimization is desired.
 - Add linting/formatting scripts once tooling is chosen.
@@ -146,7 +145,7 @@ Acceptance criteria:
 - `yarn build` passes on Node 24.18.0.
 - Desktop and mobile layouts have no horizontal overflow.
 - Lighthouse/accessibility pass identifies no critical issues.
-- Dead sample API routes and unused old assets are removed.
+- Unused old assets are reviewed and removed when safe.
 - README includes setup commands and Node version note.
 
 ## Acceptance Criteria
@@ -181,7 +180,6 @@ The next phase is complete when:
 - What are the real email, GitHub, LinkedIn, and CV links?
 - Should the location read "Vienna", "Vienna / Remote", or something broader?
 - Which three projects should be featured first?
-- Should the sample API route be removed entirely?
 - Should the app keep Yarn or migrate to another package manager?
 - Should the site include analytics, and if so, which privacy posture should it take?
 

@@ -1,21 +1,28 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Hamed Jenabi - Software Engineer",
+  title: "Hamed Jenabi - Design Systems Expert & Frontend Platform Lead",
   description:
-    "Hamed Jenabi is a team lead and software engineer specializing in CMS, DXP, design systems, frontend, headless CMS, and AI integrations.",
+    "Design Systems Expert and Frontend Platform Lead specializing in React, Next.js, TypeScript, component architecture, design tokens, headless CMS architecture, and AI-enabled products.",
   keywords: [
     "Hamed Jenabi",
-    "team lead",
-    "software engineer",
-    "frontend engineer",
-    "CMS",
-    "DXP",
-    "design systems",
-    "headless CMS",
-    "AI integrations",
+    "Design Systems Expert",
+    "Design Systems Lead",
+    "Design System Architect",
+    "Frontend Platform Engineer",
+    "Staff Frontend Engineer",
+    "Frontend Architect",
+    "React Architect",
+    "Next.js Engineer",
+    "Component Architecture",
+    "Design Tokens",
+    "Headless CMS Architect",
+    "AI Product Engineer",
+    "AI Solutions Engineer",
+    "Applied AI",
     "React",
     "Next.js",
+    "TypeScript",
   ],
   icons: {
     icon: "/smile.png",

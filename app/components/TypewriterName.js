@@ -15,8 +15,6 @@ const frames = [
   { text: "Hamed Jen", delay: 70 },
   { text: "Hamed Jena", delay: 70 },
   { text: "Hamed Jenab", delay: 90 },
-  { text: "Hamed Jenabj", delay: 620 },
-  { text: "Hamed Jenab", delay: 460 },
   { text: "Hamed Jenabi", delay: 1200 },
 ];
 
