@@ -22,6 +22,15 @@ export default function TypewriterName() {
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setFrame(frames.length - 1);
+      return undefined;
+    }
+
     if (frame >= frames.length - 1) {
       return undefined;
     }

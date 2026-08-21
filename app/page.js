@@ -1,15 +1,33 @@
+import BrandToggle from "./components/BrandToggle";
 import PortraitImage from "./components/PortraitImage";
 import TypewriterName from "./components/TypewriterName";
-import {
-  caseStudies,
-  expertiseAreas,
-  leadershipHighlights,
-  navItems,
-  profile,
-  proofPoints,
-  skillGroups,
-  statusItems,
-} from "./content";
+import { caseStudies, navItems, profile, statusItems, tokenTiers } from "./content";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: "https://hamedjenabi.me",
+  image: "https://hamedjenabi.me/me.png",
+  email: profile.email,
+  jobTitle: "Design Systems Expert and Frontend Platform Lead",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Vienna",
+    addressCountry: "AT",
+  },
+  sameAs: [profile.github],
+  knowsAbout: [
+    "Design Systems",
+    "Design Tokens",
+    "Frontend Platform Engineering",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Headless CMS",
+    "AI Product Engineering",
+  ],
+};
 
 function Header() {
   return (
@@ -18,16 +36,19 @@ function Header() {
         <span className="brand-mark">hj</span>
         <span className="brand-text">{profile.brand}</span>
       </a>
-      <nav>
+      <nav aria-label="Page sections">
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
             {item.label}
           </a>
         ))}
       </nav>
-      <a className="nav-cta" href={`mailto:${profile.email}`}>
-        Contact
-      </a>
+      <div className="header-actions">
+        <BrandToggle />
+        <a className="nav-cta" href={`mailto:${profile.email}`}>
+          Contact
+        </a>
+      </div>
     </header>
   );
 }
@@ -38,18 +59,18 @@ function Hero() {
       <div className="hero-copy">
         <div className="status-pill">
           <span className="pulse" />
-          Design-system specialist for senior frontend platform roles
+          Live design-system portfolio
         </div>
         <TypewriterName />
-        <p className="eyebrow">Design Systems + Architecture + Leadership</p>
+        <p className="eyebrow">Tokens + Components + Multibrand</p>
         <h1 id="hero-title">{profile.title}</h1>
         <p className="hero-lede">{profile.summary}</p>
         <div className="hero-actions" aria-label="Primary actions">
-          <a className="button primary" href="#work">
-            View My Work
+          <a className="button primary" href="#system">
+            View System
           </a>
-          <a className="button secondary" href="#about">
-            About Me
+          <a className="button secondary" href="#work">
+            Selected Work
           </a>
           <a
             className="icon-link"
@@ -63,13 +84,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hero-panel" aria-label="Developer profile snapshot">
-        <div className="panel-topbar">
-          <span />
-          <span />
-          <span />
-          <p>profile.config</p>
-        </div>
+      <div className="hero-panel" aria-label="Profile snapshot">
         <div className="portrait-frame">
           <PortraitImage />
         </div>
@@ -86,63 +101,107 @@ function Hero() {
   );
 }
 
-function ProofStrip() {
+function TokenBoard() {
   return (
-    <section className="proof-strip" aria-label="Positioning summary">
-      {proofPoints.map((point) => (
-        <p key={point}>{point}</p>
-      ))}
+    <section
+      id="system"
+      className="section system-section"
+      aria-labelledby="system-title"
+    >
+      <div className="section-heading compact">
+        <div>
+          <p className="section-kicker">System</p>
+          <h2 id="system-title">Three token tiers. Two brand expressions.</h2>
+        </div>
+        <p>
+          Switch the brand in the header; the same components keep their intent
+          while the visual language changes.
+        </p>
+      </div>
+
+      <div className="system-grid">
+        <div className="token-board" aria-label="Three-tier token board">
+          {tokenTiers.map((tier) => (
+            <article className="token-column" key={tier.title}>
+              <div>
+                <p className="token-tier">{tier.title}</p>
+                <h3>{tier.summary}</h3>
+              </div>
+              <ul>
+                {tier.tokens.map((token) => (
+                  <li key={token.name}>
+                    <span
+                      className="token-swatch"
+                      style={{ background: token.swatch }}
+                      aria-hidden="true"
+                    />
+                    <span>{token.name}</span>
+                    <strong>{token.value}</strong>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="component-lab" aria-label="Live component samples">
+          <div className="lab-header">
+            <span>component.preview</span>
+            <strong>Tokenized</strong>
+          </div>
+          <div className="sample-card">
+            <p className="project-status">Component token</p>
+            <h3>Reusable proof module</h3>
+            <p>
+              Surface, border, type, chip, and action styles are all driven by
+              the active brand expression.
+            </p>
+            <div className="tag-row">
+              <span>Accessible states</span>
+              <span>Shared semantics</span>
+              <span>Brand-safe UI</span>
+            </div>
+            <div className="sample-actions">
+              <span className="button primary sample-button">
+                Primary
+              </span>
+              <span className="button secondary sample-button">
+                Secondary
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
 function SelectedWork() {
   return (
-    <section id="work" className="section">
-      <div className="section-heading">
+    <section id="work" className="section" aria-labelledby="work-title">
+      <div className="section-heading compact">
         <div>
-          <p className="section-kicker">Selected Work</p>
-          <h2>Flagship case studies led by design-system and platform thinking.</h2>
+          <p className="section-kicker">Work</p>
+          <h2 id="work-title">Selected proof, kept scan-friendly.</h2>
         </div>
-        <p>
-          These projects are shaped around the roles I want the portfolio to
-          support: Design Systems Lead, Staff Frontend Engineer, Frontend
-          Architect, CMS/DXP Architect, and AI Integration Engineer.
-        </p>
       </div>
 
-      <div className="project-grid">
+      <div className="project-grid compact-projects">
         {caseStudies.map((project) => (
-          <article className="project-card" key={project.title}>
-            <div className="project-visual">
-              <span>{project.number}</span>
-              <div className="architecture-flow" aria-label="Architecture">
-                {project.architecture.map((item) => (
-                  <code key={item}>{item}</code>
-                ))}
-              </div>
+          <article
+            className="project-card"
+            key={project.title}
+            aria-labelledby={`project-${project.number}-title`}
+          >
+            <div className="project-marker" aria-hidden="true">
+              {project.number}
             </div>
             <div className="project-body">
-              <p className="project-status">{project.status}</p>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
-              <dl className="project-details">
-                <div>
-                  <dt>Role</dt>
-                  <dd>{project.role}</dd>
-                </div>
-                <div>
-                  <dt>Problem</dt>
-                  <dd>{project.problem}</dd>
-                </div>
-              </dl>
-              <div className="decision-list">
-                {project.decisions.map((decision) => (
-                  <p key={decision}>{decision}</p>
-                ))}
-              </div>
+              <p className="project-status">{project.role}</p>
+              <h3 id={`project-${project.number}-title`}>{project.title}</h3>
+              <p>{project.value}</p>
               <div className="tag-row">
-                {project.stack.map((tag) => (
+                {project.stack.slice(0, 5).map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
@@ -154,119 +213,12 @@ function SelectedWork() {
   );
 }
 
-function Expertise() {
-  return (
-    <section id="expertise" className="section">
-      <div className="section-heading">
-        <div>
-          <p className="section-kicker">Expertise</p>
-          <h2>Design systems first, with platform depth around them.</h2>
-        </div>
-        <p>
-          The goal is to show design-system expertise as the center of the
-          story, supported by architecture, product engineering, CMS/DXP, and
-          practical AI experience.
-        </p>
-      </div>
-
-      <div className="expertise-grid">
-        {expertiseAreas.map((area) => (
-          <article className="expertise-card" key={area.title}>
-            <h3>{area.title}</h3>
-            <p>{area.description}</p>
-            <div className="tag-row">
-              {area.topics.map((topic) => (
-                <span key={topic}>{topic}</span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Experience() {
-  return (
-    <section id="experience" className="section split-section">
-      <div>
-        <p className="section-kicker">Experience</p>
-        <h2>Design-system leadership framed around ownership and impact.</h2>
-      </div>
-      <div className="leadership-list">
-        {leadershipHighlights.map((item) => (
-          <p key={item}>{item}</p>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Stack() {
-  return (
-    <section className="section">
-      <div className="section-heading">
-        <div>
-          <p className="section-kicker">Technical Stack</p>
-          <h2>Skills organized by capability, not as one long tool list.</h2>
-        </div>
-        <p>
-          This makes the site easier to scan for platform, CMS, frontend, and
-          applied AI roles.
-        </p>
-      </div>
-
-      <div className="skills-grid">
-        {skillGroups.map((group) => (
-          <article className="skill-panel" key={group.title}>
-            <h3>{group.title}</h3>
-            <div className="tag-row">
-              {group.skills.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function About() {
-  return (
-    <section id="about" className="section about-grid">
-      <div>
-        <p className="section-kicker">About</p>
-        <h2>From frontend implementation to frontend platform leadership.</h2>
-      </div>
-      <div className="copy-block">
-        <p>
-          I started primarily in frontend engineering and gradually moved toward
-          building the systems behind frontend teams: reusable platforms, design
-          systems, content architectures, and technical standards.
-        </p>
-        <p>
-          Today my focus is at the intersection of frontend platform
-          engineering, content systems, and applied AI. I enjoy turning complex
-          product and engineering requirements into scalable architectures that
-          teams can actually maintain.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
   return (
-    <section id="contact" className="section contact-band">
-      <div className="section-title">
+    <section id="contact" className="section contact-close" aria-labelledby="contact-title">
+      <div>
         <p className="section-kicker">Contact</p>
-        <h2>Need a design systems expert for frontend platform work?</h2>
-        <p>
-          I am open to conversations around Design Systems Lead, Staff Frontend,
-          Frontend Architect, CMS/DXP Architect, and AI product integration
-          roles.
-        </p>
+        <h2 id="contact-title">Need a design-system lead for frontend platform work?</h2>
       </div>
       <div className="contact-actions">
         <a className="button primary" href={`mailto:${profile.email}`}>
@@ -301,19 +253,22 @@ function Footer() {
 
 export default function Home() {
   return (
-    <div className="page-shell">
+    <div id="top" className="page-shell">
+      <a className="skip-link" href="#content">
+        Skip to content
+      </a>
       <Header />
-      <main id="top">
+      <main id="content">
         <Hero />
-        <ProofStrip />
+        <TokenBoard />
         <SelectedWork />
-        <Expertise />
-        <Experience />
-        <Stack />
-        <About />
         <Contact />
       </main>
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
     </div>
   );
 }

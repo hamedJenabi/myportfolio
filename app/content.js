@@ -1,42 +1,67 @@
 export const profile = {
   name: "Hamed Jenabi",
-  brand: "hamed.dev",
+  brand: "hamedjenabi.me",
   email: "hamed.jenabi@gmail.com",
   github: "https://github.com/hamedJenabi",
   location: "Vienna / Remote",
-  title: "Design Systems Expert & Frontend Platform Lead",
+  title: "Design systems that scale across brands.",
   summary:
-    "I design and build scalable design systems, frontend platforms, headless content architectures, and AI-enabled products using React, Next.js, TypeScript, and modern AI technologies.",
+    "I build token-driven frontend platforms, reusable component systems, and content-rich product experiences for teams that need consistency without slowing down.",
 };
 
 export const navItems = [
+  { label: "System", href: "#system" },
   { label: "Work", href: "#work" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "Experience", href: "#experience" },
-  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const statusItems = [
-  ["Position", "Design Systems Expert & Frontend Platform Lead"],
-  ["Specialty", "Component architecture, tokens, governance, accessibility"],
-  ["Scope", "Staff-level design-system and platform initiatives"],
-  ["Location", "Vienna / Remote"],
+  ["Focus", "Design systems"],
+  ["Model", "Primitive -> semantic -> component"],
+  ["Brands", "Terminal + Product"],
+  ["Base", "Vienna / Remote"],
 ];
 
-export const proofPoints = [
-  "Design-system architecture for scalable, consistent product delivery",
-  "Reusable component foundations with tokens, accessibility, and governance",
-  "Frontend platform architecture for content-rich product ecosystems",
-  "Headless CMS and DXP integrations across reusable channels",
+export const tokenTiers = [
+  {
+    title: "Primitive",
+    summary: "Raw design values with no product meaning yet.",
+    tokens: [
+      { name: "accent-mint", value: "Color", swatch: "var(--primitive-mint)" },
+      { name: "accent-amber", value: "Color", swatch: "var(--primitive-amber)" },
+      { name: "space-4", value: "Spacing", swatch: "var(--primitive-space)" },
+      { name: "radius-2", value: "Shape", swatch: "var(--primitive-radius)" },
+    ],
+  },
+  {
+    title: "Semantic",
+    summary: "Role-based decisions shared by the interface.",
+    tokens: [
+      { name: "surface-raised", value: "Surface", swatch: "var(--surface-raised)" },
+      { name: "text-primary", value: "Content", swatch: "var(--text-primary)" },
+      { name: "border-subtle", value: "Boundary", swatch: "var(--border-subtle)" },
+      { name: "action-primary", value: "Intent", swatch: "var(--action-primary)" },
+    ],
+  },
+  {
+    title: "Component",
+    summary: "Local decisions for repeated portfolio patterns.",
+    tokens: [
+      { name: "toggle-track", value: "Control", swatch: "var(--toggle-track)" },
+      { name: "card-accent", value: "Work card", swatch: "var(--card-accent)" },
+      { name: "chip-fill", value: "Tag", swatch: "var(--chip-fill)" },
+      { name: "panel-shadow", value: "Depth", swatch: "var(--shadow-swatch)" },
+    ],
+  },
 ];
 
 export const caseStudies = [
   {
     number: "01",
     title: "Frontend Platform / Design System",
-    status: "Primary design-system proof",
     role: "Design Systems Expert / Frontend Platform Lead",
+    value:
+      "Tokenized components, governance, accessibility, and release paths for reusable product UI.",
     summary:
       "A production-style frontend foundation that connects design tokens, reusable components, documentation, testing, accessibility, and release governance.",
     problem:
@@ -57,8 +82,9 @@ export const caseStudies = [
   {
     number: "02",
     title: "AI Content Platform",
-    status: "AI and content-platform case study",
     role: "Frontend Architect / AI Integration Lead",
+    value:
+      "A retrieval-first content workflow for search, reuse, summarization, and channel adaptation.",
     summary:
       "An AI-enabled headless content platform for helping editorial teams search, reuse, summarize, and adapt structured content across channels.",
     problem:
@@ -74,8 +100,9 @@ export const caseStudies = [
   {
     number: "03",
     title: "Engineering Knowledge Agent",
-    status: "Applied AI product concept",
     role: "AI Product / Integration Engineer",
+    value:
+      "A tool-calling knowledge interface with structured answers, auditability, and evaluation loops.",
     summary:
       "An AI workflow product that searches technical documentation, calls tools, returns structured answers, and evaluates response quality.",
     problem:

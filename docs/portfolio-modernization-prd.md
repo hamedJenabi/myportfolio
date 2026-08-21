@@ -2,191 +2,165 @@
 
 ## Summary
 
-Modernize Hamed Jenabi's portfolio into a recruiter-focused developer website that presents him as a Team Lead and Software Engineer specializing in CMS, DXP solutions, design systems, headless CMS, frontend engineering, and AI integrations. The site should keep the terminal/engineering visual direction, replace placeholders with real proof, and mature the newly migrated Next.js App Router codebase into a maintainable production portfolio.
+Modernize Hamed Jenabi's portfolio at `hamedjenabi.me` into a recruiter-friendly live design-system demo. The homepage should prove design-system and frontend-platform skill through tokenized brand expressions, compact content, accessible interactions, and a clear path to contact.
 
 ## Background / Current State
 
-The portfolio has been redesigned as a dark terminal-inspired one-page site with a recruiter-facing hero, profile/status panel, skills section, coming-soon project cards, and contact area. The positioning now includes team leadership in CMS and DXP solutions, design-system experience, and headless CMS expertise.
+The portfolio is now a Next.js App Router one-page site with a reduced page shape:
 
-The technical foundation has been upgraded from the legacy Pages Router to the Next.js App Router. The app now uses:
+- Hero
+- System token demo
+- Selected work
+- Contact
+
+The site uses a three-tier token model: primitive, semantic, and component tokens. It also includes a persistent `Brand: Terminal / Product` toggle that demonstrates multibrand capability without duplicating page content.
+
+The current technical foundation uses:
 
 - Next.js 16.2.9
 - React 19.2.7
-- Node 24.18.0 via `.nvmrc` and `.node-version`
-- `app/page.js`, `app/layout.js`, `app/globals.css`
-
-The site still uses placeholder links and placeholder project content. The next phase should turn the polished shell into a credible recruiting asset.
+- Node 24.18.0 or newer
+- Yarn v1 lockfile
+- `app/page.js`, `app/content.js`, `app/layout.js`, `app/globals.css`
 
 ## Target Users
 
-Primary user: recruiters evaluating Hamed for software engineering roles.
+Primary user: recruiters and hiring managers evaluating Hamed for design-system, frontend-platform, staff frontend, CMS/DXP, and AI-enabled product roles.
 
 Secondary users:
 
-- Hiring managers scanning technical fit
-- Technical peers reviewing project depth
+- Technical peers reviewing system thinking
 - Collaborators checking contact and GitHub links
+- Design-system teams looking for token and multibrand experience
 
 ## Goals
 
-- Make Hamed's positioning clear within 10 seconds: Team Lead and Software Engineer specializing in CMS, DXP, design systems, headless CMS, frontend, and AI integrations.
-- Replace placeholder project cards with credible project summaries or case studies.
-- Make contact paths real and easy to use.
-- Keep the terminal/engineering aesthetic while preserving readability and recruiter scan speed.
-- Improve code organization enough that future content updates are simple.
-- Verify the site works across desktop and mobile.
+- Make Hamed's positioning clear within 10 seconds.
+- Let the website itself demonstrate design-system skill.
+- Keep copy density low and scanning fast.
+- Show multibrand capability through token changes across color, typography, spacing, radius, surfaces, and layout rhythm.
+- Keep the experience accessible across keyboard, motion preferences, contrast, and mobile layout.
+- Keep SEO metadata aligned with `https://hamedjenabi.me`.
 
 ## Non-Goals
 
-- Build a full blog system in this phase.
-- Add a CMS before content is stable.
-- Create complex animation or 3D effects.
+- Build a CMS or blog system in this phase.
+- Add a full case-study detail route.
 - Add authentication, dashboards, or backend product features.
-- Over-optimize for novelty at the cost of recruiter clarity.
+- Add a UI library or token build pipeline before the simple CSS-token system needs it.
+- Add decorative effects that distract from the design-system proof.
 
 ## User Stories
 
-- As a recruiter, I want to understand Hamed's role, leadership experience, CMS/DXP focus, location, availability, and contact path without hunting.
-- As a recruiter, I want to see 2-3 concrete examples of relevant work so I can decide whether to move him forward.
-- As a hiring manager, I want to understand the technologies, tradeoffs, and outcomes behind each project.
-- As Hamed, I want to update project content and contact links without editing a large monolithic component.
-- As a mobile visitor, I want the same content hierarchy without horizontal scrolling or cramped controls.
+- As a recruiter, I want to understand Hamed's role, focus, location, proof, and contact path quickly.
+- As a hiring manager, I want to see that Hamed can think in tokens, components, brand systems, and frontend platform constraints.
+- As a design-system reviewer, I want to see the same interface adapt across brand expressions without duplicated content.
+- As a keyboard or reduced-motion user, I want the site to remain usable and calm.
+- As Hamed, I want to update content from a clear content module instead of editing dense JSX.
 
 ## Requirements
 
 ### Content Requirements
 
-- Contact email is set to `hamed.jenabi@gmail.com`.
-- Replace placeholder GitHub and LinkedIn URLs with real links.
-- Add a real CV file or point the CV button to a hosted resume.
-- Add team lead experience in CMS and DXP solutions to the hero, about section, and proof areas.
-- Add design-system and headless CMS experience to skills and project case-study requirements.
-- Decide whether to show Vienna, remote availability, or a broader location label.
-- Replace "Coming soon" project cards with either:
-  - real case studies, or
-  - honest "currently building" cards with concrete scope and tech.
-- Add at least one proof point above the project grid if projects are not ready, such as GitHub, resume, skills matrix, or work experience.
-
-### Project Card Requirements
-
-Each project should include:
-
-- Project title
-- Short outcome-focused summary
-- Role and responsibility
-- Tech stack
-- Problem solved
-- What makes it relevant to CMS, DXP, design systems, frontend, headless CMS, or AI integration work
-- Links when available: live demo, repository, case study, or private-code note
+- The public domain is `https://hamedjenabi.me`.
+- Contact email is `hamed.jenabi@gmail.com`.
+- GitHub points to `https://github.com/hamedJenabi`.
+- The homepage should render only the essential sections: hero, system, work, contact.
+- Selected work cards should stay compact: title, role, one-line value, and tags.
+- Supporting expertise data can remain in `app/content.js` for future reuse, but should not crowd the homepage.
 
 ### Design Requirements
 
-- Preserve the terminal/engineering direction: command bar, grid, status indicators, terminal panels, monospace metadata.
-- Keep the primary CTA as "View Projects".
-- Keep "Contact Me" as the secondary CTA.
-- Keep GitHub as a tertiary icon/action.
-- Avoid making every element visually equal; the page should guide the recruiter.
-- Maintain readable contrast and font sizes on mobile and desktop.
-- Keep cards at 8px border radius or less.
-- Avoid decorative effects that do not support the developer/recruiter story.
+- Terminal is the default brand expression.
+- Product is the alternate brand expression.
+- Terminal should feel darker, sharper, denser, and more mono/engineering-led.
+- Product should feel lighter, softer, more spacious, and more product-system-led.
+- The Product brand should not use the square/grid page background.
+- The fixed header should remain visible while scrolling.
+- Hover transitions should ease in and out smoothly.
+- Cards should remain at 8px radius or less.
+- The interface should avoid text-heavy explanatory blocks.
 
-### Technical Requirements
+### Token Requirements
 
-- Extract repeated data into a dedicated content module, for example `app/content.js`.
-- Consider splitting page sections into components under `app/components/`.
-- Keep global layout styles in `app/globals.css`.
-- The sample `/api/hello` route has been removed for static deployment.
-- Remove unused public assets from the old version after confirming they are not referenced.
-- Use `next/image` for the portrait if image optimization is desired.
-- Add linting/formatting scripts once tooling is chosen.
-- Keep Node 24.18.0 as the project runtime until a newer LTS decision is made.
-- Keep `yarn.lock` as the package manager lockfile unless intentionally migrating to npm/pnpm.
+- Use CSS custom properties as the v1 token system.
+- Model tokens in three tiers:
+  - Primitive tokens
+  - Semantic tokens
+  - Component tokens
+- Brand switching should change more than color: font, radius, spacing, surface, shadow, and layout rhythm should also differ.
+- The active brand should persist in `localStorage`.
+
+### Accessibility Requirements
+
+- Use one H1.
+- Keep heading levels sequential.
+- Provide a skip link.
+- Keep section landmarks labelled.
+- Ensure interactive controls have accessible names.
+- Avoid focusable decorative controls.
+- Respect `prefers-reduced-motion`.
+- Preserve readable contrast in both brands.
+- Avoid horizontal overflow on mobile.
+
+### SEO Requirements
+
+- Use `https://hamedjenabi.me` as the canonical domain.
+- Render title, description, robots, Googlebot, Open Graph, Twitter, and canonical metadata.
+- Provide `robots.txt`.
+- Provide `sitemap.xml`.
+- Include JSON-LD Person structured data.
+- Use the portrait as the social preview image until a dedicated Open Graph image is created.
 
 ## Milestones
 
-### Milestone 1: Real Contact & Identity
-
-Replace all placeholder identity and contact values.
+### Milestone 1: Live Design-System Homepage
 
 Acceptance criteria:
 
-- Header/contact CTAs use real email or contact route.
-- GitHub and LinkedIn links point to real profiles.
-- CV link works or is temporarily removed.
-- Metadata title and description still match the positioning.
+- Homepage renders hero, system, work, and contact sections.
+- Token board shows primitive, semantic, and component tiers.
+- Brand toggle switches between Terminal and Product.
+- Copy density is significantly lower than the previous version.
 
-### Milestone 2: Content Architecture
-
-Move portfolio content out of JSX-heavy sections.
+### Milestone 2: Multibrand Polish
 
 Acceptance criteria:
 
-- Nav items, status items, skills, logs, projects, and social links live in a content module.
-- Page sections consume content through props or imports.
-- Updating project copy does not require editing layout markup.
+- Terminal and Product feel meaningfully different.
+- Product removes the square/grid background.
+- Header stays fixed while scrolling.
+- Hover transitions feel smooth in and out.
+- Mobile layout has no horizontal overflow.
 
-### Milestone 3: Project Proof
-
-Replace placeholder project cards with credible portfolio proof.
-
-Acceptance criteria:
-
-- At least three cards contain real or concrete in-progress work.
-- Each card states problem, role, tech, and outcome/value.
-- "Coming soon" language is removed or limited to clearly unfinished items.
-- The primary CTA lands on useful content.
-
-### Milestone 4: Production Polish
-
-Prepare the site for real recruiter traffic.
+### Milestone 3: SEO and Accessibility
 
 Acceptance criteria:
 
-- `yarn build` passes on Node 24.18.0.
-- Desktop and mobile layouts have no horizontal overflow.
-- Lighthouse/accessibility pass identifies no critical issues.
-- Unused old assets are reviewed and removed when safe.
-- README includes setup commands and Node version note.
+- `yarn build` passes.
+- `/robots.txt` and `/sitemap.xml` are generated.
+- Metadata and structured data use `https://hamedjenabi.me`.
+- Browser checks confirm one H1, labelled focusable controls, image alt text, labelled landmarks, and acceptable contrast.
 
-## Acceptance Criteria
+## Current Verification
 
-The next phase is complete when:
-
-- A recruiter can identify role, focus, proof, and contact path in under 60 seconds.
-- No primary content still says generic placeholder unless intentionally marked as in progress.
-- The codebase has a clear App Router structure with styling separated from page logic.
-- The site builds successfully with latest Next.js and the declared Node runtime.
-- The design still feels like a developer website, not a generic landing page.
-
-## Risks & Mitigations
-
-- Risk: The site looks polished but lacks proof.
-  Mitigation: Prioritize project substance over visual additions.
-
-- Risk: Terminal styling reduces readability.
-  Mitigation: Keep body copy plain, high-contrast, and scannable.
-
-- Risk: Latest Next.js requires a Node version not installed globally.
-  Mitigation: Keep `.nvmrc`, `.node-version`, and `engines` aligned; document setup.
-
-- Risk: Placeholder CV/contact links accidentally ship.
-  Mitigation: Add a final content checklist before deployment.
-
-- Risk: Overbuilding content infrastructure slows launch.
-  Mitigation: Use a simple content module before considering a CMS.
+- `yarn build` passes.
+- SEO metadata renders for title, description, canonical, Open Graph, Twitter, robots, and JSON-LD.
+- `robots.txt` and `sitemap.xml` are generated as static routes.
+- Browser accessibility checks passed for heading order, labelled focusables, image alt text, landmarks, contrast, skip-link visibility, and mobile overflow.
 
 ## Open Decisions
 
-- What are the real email, GitHub, LinkedIn, and CV links?
-- Should the location read "Vienna", "Vienna / Remote", or something broader?
-- Which three projects should be featured first?
-- Should the app keep Yarn or migrate to another package manager?
-- Should the site include analytics, and if so, which privacy posture should it take?
+- Whether to add LinkedIn to the header, footer, or selected work area.
+- Whether to add a downloadable CV or keep the contact path email-first.
+- Whether to create a dedicated Open Graph image instead of using the portrait.
+- Whether to add individual project pages later.
+- Whether to add privacy-conscious analytics.
 
 ## Future Enhancements
 
-- Add individual project detail pages under `app/projects/[slug]/page.js`.
-- Add a small writing or notes section if Hamed wants technical credibility through articles.
-- Add light motion for terminal logs and status indicators.
-- Add Open Graph image generation for better link previews.
-- Add a simple contact form only if email links prove insufficient.
+- Add project detail pages under `app/projects/[slug]/page.js`.
+- Add a small writing or notes section for technical credibility.
+- Add a dedicated Open Graph image.
+- Add a CV link if a current resume is ready.
+- Add a minimal analytics solution only if it supports the site's privacy posture.
