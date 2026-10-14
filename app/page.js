@@ -1,7 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import BrandToggle from "./components/BrandToggle";
 import PortraitImage from "./components/PortraitImage";
 import TypewriterName from "./components/TypewriterName";
-import { caseStudies, navItems, profile, statusItems, tokenTiers } from "./content";
+import { copy, profile, tokenNames, tokenSwatches } from "./content";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -10,165 +13,82 @@ const structuredData = {
   url: "https://hamedjenabi.me",
   image: "https://hamedjenabi.me/me.png",
   email: profile.email,
-  jobTitle: "Design Systems Expert and Frontend Platform Lead",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Vienna",
-    addressCountry: "AT",
-  },
+  jobTitle: "Frontend Platform and Design Systems Lead",
+  address: { "@type": "PostalAddress", addressLocality: "Vienna", addressCountry: "AT" },
   sameAs: [profile.github],
-  knowsAbout: [
-    "Design Systems",
-    "Design Tokens",
-    "Frontend Platform Engineering",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Headless CMS",
-    "AI Product Engineering",
-  ],
+  knowsAbout: ["Design Systems", "Frontend Platform Engineering", "React", "TypeScript", "Headless CMS"],
 };
 
-function Header() {
+function Header({ language, setLanguage, c }) {
+  const links = ["#system", "#work", "#contact"];
   return (
-    <header className="command-bar" aria-label="Primary navigation">
+    <header className="command-bar" aria-label={language === "de" ? "Hauptnavigation" : "Primary navigation"}>
       <a className="brand" href="#top" aria-label={`${profile.name} home`}>
-        <span className="brand-mark">hj</span>
-        <span className="brand-text">{profile.brand}</span>
+        <span className="brand-mark">hj</span><span className="brand-text">{profile.brand}</span>
       </a>
-      <nav aria-label="Page sections">
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
-            {item.label}
-          </a>
-        ))}
+      <nav aria-label={language === "de" ? "Seitenbereiche" : "Page sections"}>
+        {c.nav.map((label, i) => <a key={links[i]} href={links[i]}>{label}</a>)}
       </nav>
       <div className="header-actions">
+        <div className="language-toggle" role="group" aria-label={c.brandLabel}>
+          <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
+          <button type="button" aria-pressed={language === "de"} onClick={() => setLanguage("de")}>DE</button>
+        </div>
         <BrandToggle />
-        <a className="nav-cta" href={`mailto:${profile.email}`}>
-          Contact
-        </a>
+        <a className="nav-cta" href={`mailto:${profile.email}`}>{c.contactShort}</a>
       </div>
     </header>
   );
 }
 
-function Hero() {
+function Hero({ c }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <div className="status-pill">
-          <span className="pulse" />
-          Live design-system portfolio
-        </div>
+        <div className="status-pill"><span className="pulse" />{c.liveLabel}</div>
         <TypewriterName />
-        <p className="eyebrow">Tokens + Components + Multibrand</p>
-        <h1 id="hero-title">{profile.title}</h1>
-        <p className="hero-lede">{profile.summary}</p>
+        <p className="eyebrow">{c.eyebrow}</p>
+        <h1 id="hero-title">{c.title}</h1>
+        <p className="hero-lede">{c.summary}</p>
         <div className="hero-actions" aria-label="Primary actions">
-          <a className="button primary" href="#system">
-            View System
-          </a>
-          <a className="button secondary" href="#work">
-            Selected Work
-          </a>
-          <a
-            className="icon-link"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open GitHub"
-          >
-            GH
-          </a>
+          <a className="button primary" href="#system">{c.viewSystem}</a>
+          <a className="button secondary" href="#work">{c.viewWork}</a>
+          <a className="icon-link" href={profile.github} target="_blank" rel="noreferrer" aria-label={c.githubLabel}>GH</a>
         </div>
       </div>
-
       <div className="hero-panel" aria-label="Profile snapshot">
-        <div className="portrait-frame">
-          <PortraitImage />
-        </div>
-        <div className="status-grid">
-          {statusItems.map(([label, value]) => (
-            <div key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
+        <div className="portrait-frame"><PortraitImage /></div>
+        <div className="status-grid">{c.status.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
       </div>
     </section>
   );
 }
 
-function TokenBoard() {
+function TokenBoard({ c }) {
   return (
-    <section
-      id="system"
-      className="section system-section"
-      aria-labelledby="system-title"
-    >
+    <section id="system" className="section system-section" aria-labelledby="system-title">
       <div className="section-heading compact">
-        <div>
-          <p className="section-kicker">System</p>
-          <h2 id="system-title">Three token tiers. Two brand expressions.</h2>
-        </div>
-        <p>
-          Switch the brand in the header; the same components keep their intent
-          while the visual language changes.
-        </p>
+        <div><p className="section-kicker">{c.systemKicker}</p><h2 id="system-title">{c.systemTitle}</h2></div>
+        <p>{c.systemIntro}</p>
       </div>
-
       <div className="system-grid">
         <div className="token-board" aria-label="Three-tier token board">
-          {tokenTiers.map((tier) => (
+          {c.tokenTiers.map((tier, tierIndex) => (
             <article className="token-column" key={tier.title}>
-              <div>
-                <p className="token-tier">{tier.title}</p>
-                <h3>{tier.summary}</h3>
-              </div>
-              <ul>
-                {tier.tokens.map((token) => (
-                  <li key={token.name}>
-                    <span
-                      className="token-swatch"
-                      style={{ background: token.swatch }}
-                      aria-hidden="true"
-                    />
-                    <span>{token.name}</span>
-                    <strong>{token.value}</strong>
-                  </li>
-                ))}
-              </ul>
+              <div><p className="token-tier">{tier.title}</p><h3>{tier.summary}</h3></div>
+              <ul>{tokenNames[tierIndex].map((name, i) => <li key={name}>
+                <span className="token-swatch" style={{ background: tokenSwatches[tierIndex][i] }} aria-hidden="true" />
+                <span>{name}</span><strong>{tier.values[i]}</strong>
+              </li>)}</ul>
             </article>
           ))}
         </div>
-
         <div className="component-lab" aria-label="Live component samples">
-          <div className="lab-header">
-            <span>component.preview</span>
-            <strong>Tokenized</strong>
-          </div>
+          <div className="lab-header"><span>component.preview</span><strong>Tokenized</strong></div>
           <div className="sample-card">
-            <p className="project-status">Component token</p>
-            <h3>Reusable proof module</h3>
-            <p>
-              Surface, border, type, chip, and action styles are all driven by
-              the active brand expression.
-            </p>
-            <div className="tag-row">
-              <span>Accessible states</span>
-              <span>Shared semantics</span>
-              <span>Brand-safe UI</span>
-            </div>
-            <div className="sample-actions">
-              <span className="button primary sample-button">
-                Primary
-              </span>
-              <span className="button secondary sample-button">
-                Secondary
-              </span>
-            </div>
+            <p className="project-status">{c.componentLabel}</p><h3>{c.componentTitle}</h3><p>{c.componentBody}</p>
+            <div className="tag-row">{c.componentTags.map(tag => <span key={tag}>{tag}</span>)}</div>
+            <div className="sample-actions"><span className="button primary sample-button">{c.primary}</span><span className="button secondary sample-button">{c.secondary}</span></div>
           </div>
         </div>
       </div>
@@ -176,99 +96,55 @@ function TokenBoard() {
   );
 }
 
-function SelectedWork() {
+function SelectedWork({ c }) {
   return (
     <section id="work" className="section" aria-labelledby="work-title">
       <div className="section-heading compact">
-        <div>
-          <p className="section-kicker">Work</p>
-          <h2 id="work-title">Selected proof, kept scan-friendly.</h2>
-        </div>
+        <div><p className="section-kicker">{c.workKicker}</p><h2 id="work-title">{c.workTitle}</h2></div>
+        <p>{c.workIntro}</p>
       </div>
-
+      <p className="leadership-proof">{c.leadership}</p>
       <div className="project-grid compact-projects">
-        {caseStudies.map((project) => (
-          <article
-            className="project-card"
-            key={project.title}
-            aria-labelledby={`project-${project.number}-title`}
-          >
-            <div className="project-marker" aria-hidden="true">
-              {project.number}
-            </div>
-            <div className="project-body">
-              <p className="project-status">{project.role}</p>
-              <h3 id={`project-${project.number}-title`}>{project.title}</h3>
-              <p>{project.value}</p>
-              <div className="tag-row">
-                {project.stack.slice(0, 5).map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
+        {c.cases.map(project => <article className="project-card" key={project.number} aria-labelledby={`project-${project.number}-title`}>
+          <div className="project-marker" aria-hidden="true">{project.number}</div>
+          <div className="project-body"><p className="project-status">{project.stage}</p><h3 id={`project-${project.number}-title`}>{project.title}</h3>
+            <p className="project-role">{project.role}</p><p>{project.value}</p>
+            <div className="tag-row">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+          </div>
+        </article>)}
       </div>
+      <p className="proof-note">{c.proofNote}</p>
     </section>
   );
 }
 
-function Contact() {
+function Contact({ c }) {
   return (
     <section id="contact" className="section contact-close" aria-labelledby="contact-title">
-      <div>
-        <p className="section-kicker">Contact</p>
-        <h2 id="contact-title">Need a design-system lead for frontend platform work?</h2>
-      </div>
-      <div className="contact-actions">
-        <a className="button primary" href={`mailto:${profile.email}`}>
-          Email Me
-        </a>
-        <a
-          className="button secondary"
-          href={profile.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-      </div>
+      <div><p className="section-kicker">{c.contactKicker}</p><h2 id="contact-title">{c.contactTitle}</h2><p className="contact-body">{c.contactBody}</p></div>
+      <div className="contact-actions"><a className="button primary" href={`mailto:${profile.email}`}>{c.emailMe}</a>
+        <a className="button secondary" href={profile.github} target="_blank" rel="noreferrer">GitHub</a></div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <span>{profile.name}</span>
-      <div>
-        <a href={profile.github} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        <a href={`mailto:${profile.email}`}>Email</a>
-      </div>
-    </footer>
   );
 }
 
 export default function Home() {
+  const [language, setLanguage] = useState("en");
+  useEffect(() => {
+    try { if (localStorage.getItem("portfolio-language") === "de") setLanguage("de"); } catch {}
+  }, []);
+  useEffect(() => {
+    document.documentElement.lang = language;
+    try { localStorage.setItem("portfolio-language", language); } catch {}
+  }, [language]);
+  const c = copy[language];
   return (
     <div id="top" className="page-shell">
-      <a className="skip-link" href="#content">
-        Skip to content
-      </a>
-      <Header />
-      <main id="content">
-        <Hero />
-        <TokenBoard />
-        <SelectedWork />
-        <Contact />
-      </main>
-      <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <a className="skip-link" href="#content">{c.skip}</a>
+      <Header language={language} setLanguage={setLanguage} c={c} />
+      <main id="content"><Hero c={c} /><TokenBoard c={c} /><SelectedWork c={c} /><Contact c={c} /></main>
+      <footer><span>{profile.name}</span><div><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={`mailto:${profile.email}`}>{c.footerEmail}</a></div></footer>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
     </div>
   );
 }

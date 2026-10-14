@@ -3,242 +3,114 @@ export const profile = {
   brand: "hamedjenabi.me",
   email: "hamed.jenabi@gmail.com",
   github: "https://github.com/hamedJenabi",
-  location: "Vienna / Remote",
-  title: "Design systems that scale across brands.",
-  summary:
-    "I build token-driven frontend platforms, reusable component systems, and content-rich product experiences for teams that need consistency without slowing down.",
 };
 
-export const navItems = [
-  { label: "System", href: "#system" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
-];
+export const copy = {
+  en: {
+    nav: ["System", "Work", "Contact"],
+    brandLabel: "Language",
+    contactShort: "Contact",
+    liveLabel: "Design systems in practice",
+    eyebrow: "Frontend platforms · Design systems · Technical leadership",
+    title: "I lead frontend systems that work across teams and brands.",
+    summary: "Vienna-based frontend leader building React and TypeScript platforms, accessible design systems, and content-rich experiences. I guide teams and stay close to the code.",
+    viewSystem: "Explore the system",
+    viewWork: "See selected work",
+    githubLabel: "Open GitHub",
+    status: [
+      ["Focus", "Leadership IC"],
+      ["Platform", "React + TypeScript"],
+      ["Systems", "Multi-brand + accessible"],
+      ["Base", "Vienna / remote"],
+    ],
+    systemKicker: "System",
+    systemTitle: "One system. Two brand expressions.",
+    systemIntro: "Switch between Terminal and Product. The same components adapt through shared design tokens.",
+    tokenTiers: [
+      { title: "Primitive", summary: "Foundational values.", values: ["Color", "Color", "Spacing", "Shape"] },
+      { title: "Semantic", summary: "Decisions with UI meaning.", values: ["Surface", "Content", "Boundary", "Intent"] },
+      { title: "Component", summary: "Decisions for repeated patterns.", values: ["Control", "Work card", "Tag", "Depth"] },
+    ],
+    componentLabel: "Component token",
+    componentTitle: "Reusable proof module",
+    componentBody: "Surface, border, type, chip, and action styles follow the active brand expression.",
+    componentTags: ["Accessible states", "Shared semantics", "Brand-safe UI"],
+    primary: "Primary",
+    secondary: "Secondary",
+    workKicker: "Selected work",
+    workTitle: "Client work and hands-on leadership.",
+    workIntro: "Four years on the Wien Energie platform, separate design systems for Wien Energie and WINTERSTEIGER, and exploratory AI work clearly labelled as such.",
+    leadership: "Led an active delivery team of roughly 8–10 developers, worked with UX/UI and product colleagues, hired more than 20 frontend engineers over time, and continued coding.",
+    cases: [
+      { number: "01", stage: "Client work · Wien Energie", title: "Headless, multi-brand energy platform", role: "Frontend and team leadership", value: "Helped transform a WordPress site into a headless platform with a multi-brand design system across roughly four years.", stack: ["React", "TypeScript", "Headless CMS", "Design system", "Accessibility"] },
+      { number: "02", stage: "Client work · WINTERSTEIGER", title: "Multi-brand design system", role: "Design-system architecture", value: "Built a separate reusable component foundation for WINTERSTEIGER brands, with shared patterns and accessible interaction design.", stack: ["Components", "Design tokens", "Ariakit", "WCAG 2.1 AA"] },
+      { number: "03", stage: "Exploratory prototype", title: "AI-assisted content workflows", role: "Prototype and technical exploration", value: "Explored retrieval, structured outputs, and tool-assisted workflows for content and engineering knowledge. Production use and outcomes are not claimed.", stack: ["Next.js", "TypeScript", "Retrieval", "LLM APIs"] },
+    ],
+    proofNote: "Across the Wien Energie and WINTERSTEIGER systems: more than 20 core and 10 complex components; accessibility work targeted WCAG 2.1 AA.",
+    contactKicker: "Contact",
+    contactTitle: "Looking for a hands-on frontend leader?",
+    contactBody: "Available for Vienna and Austria-compatible remote opportunities. February 2027 is my preferred start, with flexibility by agreement.",
+    emailMe: "Email me",
+    footerEmail: "Email",
+    skip: "Skip to content",
+  },
+  de: {
+    nav: ["System", "Projekte", "Kontakt"],
+    brandLabel: "Sprache",
+    contactShort: "Kontakt",
+    liveLabel: "Designsysteme in der Praxis",
+    eyebrow: "Frontend-Plattformen · Designsysteme · Technische Führung",
+    title: "Ich entwickle Frontend-Systeme für Teams und Marken.",
+    summary: "Als Frontend Lead in Wien entwickle ich React- und TypeScript-Plattformen, barrierearme Designsysteme und komplexe Content-Erlebnisse. Ich begleite Teams und arbeite weiter am Code.",
+    viewSystem: "System ansehen",
+    viewWork: "Projekte ansehen",
+    githubLabel: "GitHub öffnen",
+    status: [
+      ["Fokus", "Technische Führung"],
+      ["Plattform", "React + TypeScript"],
+      ["Systeme", "Mehrere Marken + Accessibility"],
+      ["Standort", "Wien / Remote"],
+    ],
+    systemKicker: "System",
+    systemTitle: "Ein System. Zwei Markenwelten.",
+    systemIntro: "Zwischen Terminal und Product wechseln: dieselben Komponenten passen sich über gemeinsame Design-Tokens an.",
+    tokenTiers: [
+      { title: "Primitiv", summary: "Grundlegende Werte.", values: ["Farbe", "Farbe", "Abstand", "Form"] },
+      { title: "Semantisch", summary: "Entscheidungen mit UI-Bedeutung.", values: ["Fläche", "Inhalt", "Abgrenzung", "Aktion"] },
+      { title: "Komponente", summary: "Entscheidungen für wiederkehrende Muster.", values: ["Steuerung", "Projektkarte", "Tag", "Tiefe"] },
+    ],
+    componentLabel: "Komponenten-Token",
+    componentTitle: "Wiederverwendbares Beispiel",
+    componentBody: "Fläche, Rahmen, Schrift, Tags und Aktionen folgen der gewählten Markenwelt.",
+    componentTags: ["Zugängliche Zustände", "Gemeinsame Semantik", "Markenfähige UI"],
+    primary: "Primär",
+    secondary: "Sekundär",
+    workKicker: "Ausgewählte Arbeit",
+    workTitle: "Kundenprojekte und technische Führung.",
+    workIntro: "Vier Jahre an der Plattform von Wien Energie, getrennte Designsysteme für Wien Energie und WINTERSTEIGER und klar gekennzeichnete KI-Prototypen.",
+    leadership: "Ich leitete ein aktives Team von rund 8–10 Entwickler:innen, arbeitete mit UX/UI und Produktmanagement, stellte über die Jahre mehr als 20 Frontend-Entwickler:innen ein und programmierte weiterhin selbst.",
+    cases: [
+      { number: "01", stage: "Kundenprojekt · Wien Energie", title: "Headless-Plattform für mehrere Marken", role: "Frontend- und Teamleitung", value: "Begleitete über rund vier Jahre die Entwicklung einer WordPress-Website zu einer Headless-Plattform mit mehrmarkenfähigem Designsystem.", stack: ["React", "TypeScript", "Headless CMS", "Designsystem", "Accessibility"] },
+      { number: "02", stage: "Kundenprojekt · WINTERSTEIGER", title: "Mehrmarkenfähiges Designsystem", role: "Designsystem-Architektur", value: "Entwickelte eine eigene wiederverwendbare Komponentenbasis für WINTERSTEIGER-Marken mit gemeinsamen Mustern und zugänglichen Interaktionen.", stack: ["Komponenten", "Design-Tokens", "Ariakit", "WCAG 2.1 AA"] },
+      { number: "03", stage: "Explorativer Prototyp", title: "KI-gestützte Content-Workflows", role: "Prototyp und technische Exploration", value: "Erprobte Retrieval, strukturierte Ausgaben und Tool-gestützte Abläufe für Content und technisches Wissen. Keine Behauptung zu produktivem Einsatz oder Ergebnissen.", stack: ["Next.js", "TypeScript", "Retrieval", "LLM APIs"] },
+    ],
+    proofNote: "In den Systemen für Wien Energie und WINTERSTEIGER: mehr als 20 Kernkomponenten und 10 komplexe Komponenten; Barrierefreiheit mit dem Ziel WCAG 2.1 AA.",
+    contactKicker: "Kontakt",
+    contactTitle: "Sie suchen technische Frontend-Führung?",
+    contactBody: "Offen für Positionen in Wien und Remote-Rollen, die von Österreich aus möglich sind. Bevorzugter Start ist Februar 2027, nach Absprache flexibel.",
+    emailMe: "E-Mail schreiben",
+    footerEmail: "E-Mail",
+    skip: "Zum Inhalt springen",
+  },
+};
 
-export const statusItems = [
-  ["Focus", "Design systems"],
-  ["Model", "Primitive -> semantic -> component"],
-  ["Brands", "Terminal + Product"],
-  ["Base", "Vienna / Remote"],
+export const tokenNames = [
+  ["accent-mint", "accent-amber", "space-4", "radius-2"],
+  ["surface-raised", "text-primary", "border-subtle", "action-primary"],
+  ["toggle-track", "card-accent", "chip-fill", "panel-shadow"],
 ];
-
-export const tokenTiers = [
-  {
-    title: "Primitive",
-    summary: "Raw design values with no product meaning yet.",
-    tokens: [
-      { name: "accent-mint", value: "Color", swatch: "var(--primitive-mint)" },
-      { name: "accent-amber", value: "Color", swatch: "var(--primitive-amber)" },
-      { name: "space-4", value: "Spacing", swatch: "var(--primitive-space)" },
-      { name: "radius-2", value: "Shape", swatch: "var(--primitive-radius)" },
-    ],
-  },
-  {
-    title: "Semantic",
-    summary: "Role-based decisions shared by the interface.",
-    tokens: [
-      { name: "surface-raised", value: "Surface", swatch: "var(--surface-raised)" },
-      { name: "text-primary", value: "Content", swatch: "var(--text-primary)" },
-      { name: "border-subtle", value: "Boundary", swatch: "var(--border-subtle)" },
-      { name: "action-primary", value: "Intent", swatch: "var(--action-primary)" },
-    ],
-  },
-  {
-    title: "Component",
-    summary: "Local decisions for repeated portfolio patterns.",
-    tokens: [
-      { name: "toggle-track", value: "Control", swatch: "var(--toggle-track)" },
-      { name: "card-accent", value: "Work card", swatch: "var(--card-accent)" },
-      { name: "chip-fill", value: "Tag", swatch: "var(--chip-fill)" },
-      { name: "panel-shadow", value: "Depth", swatch: "var(--shadow-swatch)" },
-    ],
-  },
-];
-
-export const caseStudies = [
-  {
-    number: "01",
-    title: "Frontend Platform / Design System",
-    role: "Design Systems Expert / Frontend Platform Lead",
-    value:
-      "Tokenized components, governance, accessibility, and release paths for reusable product UI.",
-    summary:
-      "A production-style frontend foundation that connects design tokens, reusable components, documentation, testing, accessibility, and release governance.",
-    problem:
-      "Product teams need consistent UI delivery without every application rebuilding patterns, accessibility behavior, and release decisions from scratch.",
-    architecture: [
-      "Design Tokens",
-      "Component Library",
-      "Frontend Platform",
-      "Product Apps",
-    ],
-    decisions: [
-      "Treat components as governed platform assets, not one-off UI fragments.",
-      "Document adoption paths so teams can move quickly without losing consistency.",
-      "Protect quality through typed APIs, accessibility checks, and automated tests.",
-    ],
-    stack: ["React", "TypeScript", "Storybook", "Design Tokens", "CI/CD"],
-  },
-  {
-    number: "02",
-    title: "AI Content Platform",
-    role: "Frontend Architect / AI Integration Lead",
-    value:
-      "A retrieval-first content workflow for search, reuse, summarization, and channel adaptation.",
-    summary:
-      "An AI-enabled headless content platform for helping editorial teams search, reuse, summarize, and adapt structured content across channels.",
-    problem:
-      "Content teams often manage large content libraries without a reliable way to find, recombine, and govern reusable information.",
-    architecture: ["Next.js App", "CMS APIs", "Retrieval Layer", "LLM Workflow"],
-    decisions: [
-      "Use retrieval before generation to ground responses in approved content.",
-      "Validate structured outputs before they enter editorial workflows.",
-      "Track usage and response quality so AI cost and reliability stay visible.",
-    ],
-    stack: ["Next.js", "TypeScript", "Headless CMS", "RAG", "LLM APIs"],
-  },
-  {
-    number: "03",
-    title: "Engineering Knowledge Agent",
-    role: "AI Product / Integration Engineer",
-    value:
-      "A tool-calling knowledge interface with structured answers, auditability, and evaluation loops.",
-    summary:
-      "An AI workflow product that searches technical documentation, calls tools, returns structured answers, and evaluates response quality.",
-    problem:
-      "Engineering teams lose time finding trustworthy project knowledge across docs, APIs, issue trackers, and code-adjacent systems.",
-    architecture: ["User", "AI Orchestrator", "Tool Calling", "Docs / APIs / Data"],
-    decisions: [
-      "Separate orchestration, retrieval, and tool execution for safer evolution.",
-      "Use structured outputs and evaluations to make answers inspectable.",
-      "Design rate limits, audit logs, and fallback states as product features.",
-    ],
-    stack: ["Next.js", "MCP", "Tool Calling", "Vector Search", "Observability"],
-  },
-];
-
-export const expertiseAreas = [
-  {
-    title: "Design Systems",
-    description:
-      "Creating design systems that connect product, design, and engineering through reusable components, tokens, accessibility, documentation, and governance.",
-    topics: [
-      "Component architecture",
-      "Design tokens",
-      "Storybook",
-      "Accessibility",
-      "Governance",
-      "Reusable UI",
-      "Multi-brand systems",
-    ],
-  },
-  {
-    title: "Frontend Platforms",
-    description:
-      "Building scalable frontend foundations that allow multiple teams and products to move quickly without sacrificing quality.",
-    topics: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Frontend architecture",
-      "Performance",
-      "Testing",
-      "CI/CD",
-      "Developer experience",
-    ],
-  },
-  {
-    title: "Content Platforms & DXP",
-    description:
-      "Designing content platforms that separate content, presentation, and business logic while supporting multiple teams and channels.",
-    topics: [
-      "Headless CMS",
-      "Content architecture",
-      "CMS integrations",
-      "Sitecore",
-      "Contentful",
-      "Sanity",
-      "APIs",
-      "Multi-site platforms",
-    ],
-  },
-  {
-    title: "Applied AI",
-    description:
-      "Integrating AI into real products and workflows rather than building isolated AI demos.",
-    topics: [
-      "LLM APIs",
-      "RAG",
-      "Agents",
-      "AI workflows",
-      "MCP",
-      "Structured outputs",
-      "Vector search",
-      "AI-assisted interfaces",
-    ],
-  },
-];
-
-export const leadershipHighlights = [
-  "Designed reusable design-system architecture for content-heavy digital products, improving consistency and reducing duplicated implementation work.",
-  "Built component, token, accessibility, and documentation patterns that help teams ship polished interfaces from a shared foundation.",
-  "Led CMS and DXP frontend initiatives from platform decisions through delivery standards, code review, and team mentoring.",
-  "Shaped integrations between headless content systems and frontend applications so content can be reused across multiple digital channels.",
-  "Established technical patterns for API integration, performance, governance, and maintainable frontend delivery.",
-];
-
-export const skillGroups = [
-  {
-    title: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
-  },
-  {
-    title: "Architecture",
-    skills: [
-      "Frontend Architecture",
-      "Design Systems",
-      "Micro Frontends",
-      "Monorepos",
-      "API Architecture",
-      "Performance",
-    ],
-  },
-  {
-    title: "Content Platforms",
-    skills: [
-      "Headless CMS",
-      "Sitecore",
-      "Contentful",
-      "Sanity",
-      "Content Modeling",
-      "DXP",
-    ],
-  },
-  {
-    title: "AI Engineering",
-    skills: [
-      "LLM APIs",
-      "RAG",
-      "AI Agents",
-      "Tool Calling",
-      "MCP",
-      "Structured Outputs",
-      "Vector Search",
-      "AI Workflows",
-    ],
-  },
-  {
-    title: "Engineering",
-    skills: ["Node.js", "PostgreSQL", "Testing", "CI/CD", "GitHub Actions"],
-  },
-  {
-    title: "Leadership",
-    skills: [
-      "Technical Leadership",
-      "Architecture Reviews",
-      "Mentoring",
-      "Engineering Standards",
-      "Cross-functional Collaboration",
-    ],
-  },
+export const tokenSwatches = [
+  ["var(--primitive-mint)", "var(--primitive-amber)", "var(--primitive-space)", "var(--primitive-radius)"],
+  ["var(--surface-raised)", "var(--text-primary)", "var(--border-subtle)", "var(--action-primary)"],
+  ["var(--toggle-track)", "var(--card-accent)", "var(--chip-fill)", "var(--shadow-swatch)"],
 ];

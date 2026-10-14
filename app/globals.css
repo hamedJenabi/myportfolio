@@ -330,6 +330,31 @@ footer a:hover {
   background: var(--toggle-active);
 }
 
+.language-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2);
+  background: var(--toggle-track);
+}
+
+.language-toggle button {
+  min-width: 34px;
+  min-height: 34px;
+  border: 0;
+  border-radius: var(--radius-1);
+  color: var(--text-secondary);
+  background: transparent;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.language-toggle button[aria-pressed="true"] {
+  color: var(--toggle-active-text);
+  background: var(--toggle-active);
+}
+
 main {
   position: relative;
   z-index: 1;
@@ -806,6 +831,43 @@ h3 {
   color: var(--card-accent);
 }
 
+.leadership-proof,
+.proof-note {
+  max-width: 960px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.leadership-proof {
+  margin: 0 0 var(--space-5);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--action-primary);
+}
+
+.proof-note {
+  margin: var(--space-5) 0 0;
+  font-size: 14px;
+}
+
+.project-body .project-status,
+.project-body .project-role {
+  min-height: 0;
+}
+
+.project-body .project-role {
+  margin-top: calc(-1 * var(--space-2));
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.contact-body {
+  max-width: 660px;
+  margin-top: var(--space-3);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 .project-body p {
   min-height: 84px;
   margin-bottom: var(--space-4);
@@ -1039,7 +1101,7 @@ footer div {
 
   .brand-toggle {
     width: 100%;
-    max-width: 206px;
+    max-width: 156px;
   }
 
   .brand-toggle button {

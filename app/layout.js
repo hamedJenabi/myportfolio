@@ -18,11 +18,11 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "Hamed Jenabi Portfolio",
   title: {
-    default: "Hamed Jenabi | Design Systems & Frontend Platform Lead",
+    default: "Hamed Jenabi | Frontend Platform & Design Systems Lead",
     template: "%s | Hamed Jenabi",
   },
   description:
-    "Design systems expert and frontend platform lead building token-driven React, Next.js, TypeScript, headless CMS, and AI-enabled product experiences.",
+    "Vienna-based frontend platform and design systems lead. React, TypeScript, accessible multi-brand systems, and hands-on technical leadership.",
   keywords: [
     "Hamed Jenabi",
     "Design Systems Expert",
@@ -36,9 +36,6 @@ export const metadata = {
     "Component Architecture",
     "Design Tokens",
     "Headless CMS Architect",
-    "AI Product Engineer",
-    "AI Solutions Engineer",
-    "Applied AI",
     "React",
     "Next.js",
     "TypeScript",
@@ -53,9 +50,9 @@ export const metadata = {
     type: "website",
     url: "/",
     siteName: "Hamed Jenabi Portfolio",
-    title: "Hamed Jenabi | Design Systems & Frontend Platform Lead",
+    title: "Hamed Jenabi | Frontend Platform & Design Systems Lead",
     description:
-      "A live token-driven portfolio for design systems, frontend platforms, multibrand UI, and AI-enabled product engineering.",
+      "Client work in frontend platforms, accessible design systems, and multi-brand product UI, with hands-on technical leadership.",
     images: [
       {
         url: "/me.png",
@@ -67,7 +64,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamed Jenabi | Design Systems & Frontend Platform Lead",
+    title: "Hamed Jenabi | Frontend Platform & Design Systems Lead",
     description:
       "Token-driven design systems, frontend platforms, and multibrand product UI.",
     images: ["/me.png"],
