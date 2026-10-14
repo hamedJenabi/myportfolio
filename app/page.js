@@ -15,7 +15,7 @@ const structuredData = {
   email: profile.email,
   jobTitle: "Frontend Platform and Design Systems Lead",
   address: { "@type": "PostalAddress", addressLocality: "Vienna", addressCountry: "AT" },
-  sameAs: [profile.github],
+  sameAs: [profile.github, profile.linkedin],
   knowsAbout: ["Design Systems", "Frontend Platform Engineering", "React", "TypeScript", "Headless CMS"],
 };
 
@@ -54,6 +54,7 @@ function Hero({ c }) {
           <a className="button primary" href="#system">{c.viewSystem}</a>
           <a className="button secondary" href="#work">{c.viewWork}</a>
           <a className="icon-link" href={profile.github} target="_blank" rel="noreferrer" aria-label={c.githubLabel}>GH</a>
+          <a className="icon-link" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="Open LinkedIn">in</a>
         </div>
       </div>
       <div className="hero-panel" aria-label="Profile snapshot">
@@ -123,6 +124,7 @@ function Contact({ c }) {
     <section id="contact" className="section contact-close" aria-labelledby="contact-title">
       <div><p className="section-kicker">{c.contactKicker}</p><h2 id="contact-title">{c.contactTitle}</h2><p className="contact-body">{c.contactBody}</p></div>
       <div className="contact-actions"><a className="button primary" href={`mailto:${profile.email}`}>{c.emailMe}</a>
+        <a className="button secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         <a className="button secondary" href={profile.github} target="_blank" rel="noreferrer">GitHub</a></div>
     </section>
   );
@@ -143,7 +145,7 @@ export default function Home() {
       <a className="skip-link" href="#content">{c.skip}</a>
       <Header language={language} setLanguage={setLanguage} c={c} />
       <main id="content"><Hero c={c} /><TokenBoard c={c} /><SelectedWork c={c} /><Contact c={c} /></main>
-      <footer><span>{profile.name}</span><div><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={`mailto:${profile.email}`}>{c.footerEmail}</a></div></footer>
+      <footer><span>{profile.name}</span><div><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={`mailto:${profile.email}`}>{c.footerEmail}</a></div></footer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
     </div>
   );

@@ -3,6 +3,7 @@ export const profile = {
   brand: "hamedjenabi.me",
   email: "hamed.jenabi@gmail.com",
   github: "https://github.com/hamedJenabi",
+  linkedin: "https://www.linkedin.com/in/hamed-jenabi/",
 };
 
 export const copy = {
